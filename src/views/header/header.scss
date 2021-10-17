@@ -1,0 +1,22 @@
+.header{
+    display: flex;
+	justify-content: space-between;
+	align-items: center;        
+    padding: 10px 10px 10px 10px;    
+    background-color: #232F3E;
+
+}
+
+.ipt{
+ border-radius: .2rem;
+ width: 400px;
+ height: 30px;
+ border: none; 
+ outline: none;
+}
+
+.cart{
+    height: 30px;
+    color: white;
+    cursor: pointer;
+}

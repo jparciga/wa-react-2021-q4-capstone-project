@@ -1,0 +1,34 @@
+.carousel{
+    margin: auto;
+    display: flex;
+    position: relative;
+    flex-wrap: nowrap;
+    width: 100%;
+	padding: 20px 0;
+	overflow: hidden;
+	scroll-behavior: smooth;
+
+    .image{
+        min-width: 50%;
+        transition: .3s ease all;
+        box-shadow: 5px 5px 10px rgba(0,0,0, .3);
+        width: 100%;
+        vertical-align: top;
+        &:hover{
+            transform: scale(1.1);
+            transform-origin: center;    
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .carousel{
+        overflow: visible;
+        display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+        padding: 10px;
+    }
+}
