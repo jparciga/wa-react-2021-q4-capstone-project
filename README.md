@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Thank you for participating in the 2021 - Q4 React Bootcamp! Here you will find all the instructions to complete your **Capstone Project**.
+Thank you for participating in the 2021 - Q4 React Bootcamp!!! Here you will find all the instructions to complete your **Capstone Project**.
 
 The purpose of this project is for you to demonstrate your React skills. This is your chance to show off everything you have learned during this bootcamp!
 
