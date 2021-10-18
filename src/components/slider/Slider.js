@@ -48,7 +48,7 @@ const Slider = (props) => {
       <div className="slideshow-container">
         {slides.map((slide, index) => {
           return (
-            <div className="mySlides fade">
+            <div className="mySlides fade" key={slide.id}>
               <div className="numbertext">
                 {index + 1} / {slides.length}
               </div>
@@ -82,7 +82,7 @@ const Slider = (props) => {
       <div style={{ textAlign: "center" }}>
         {slides.map((element, index) => {
           return (
-            <span
+            <span key={index}
               className="dot"
               onClick={(e) => {
                 currentSlide(index + 1);
