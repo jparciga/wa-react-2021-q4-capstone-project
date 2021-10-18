@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Slider = () => {
+const Carousel = () => {
     return (
         <div>
-
+            CAROUSEL
         </div>
     )
 }
 
-export default Slider
+export default Carousel
