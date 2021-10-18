@@ -13,8 +13,8 @@ const Container = styled.div`
     transition: opacity 1s ease-out;
 `
 const Img = styled.img`
-width: 100%;
- border-radius: 2rem;
+    width: 100%;
+    border-radius: 2rem;
 `
 
 export default Slider
