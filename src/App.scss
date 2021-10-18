@@ -76,19 +76,21 @@ ul {
     width: 25px;
     padding: 1rem;
   }
-}
-.search-bar.white {
-  background: #fff;
-  svg {
-    fill: $color-3;
+
+  &.white {
+    background: #fff;
+    svg {
+      fill: $color-3;
+    }
+  }
+  &.color-1 {
+    background: $color-1;
+    svg {
+      fill: $color-3;
+    }
   }
 }
-.search-bar.color-1 {
-  background: $color-1;
-  svg {
-    fill: $color-3;
-  }
-}
+
 .nav__list {
   display: flex;
   padding: 0 1rem;
