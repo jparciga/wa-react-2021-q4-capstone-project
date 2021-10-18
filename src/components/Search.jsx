@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const Search = () => (
     <div style={{ display: "flex", justifyContent: "center" }}>
-        <SearchInput type="text" placeholder="Search"/>
+        <SearchInput type="text" placeholder="Search" disabled/>
     </div>
 )
 
