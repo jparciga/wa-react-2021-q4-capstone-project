@@ -1,9 +1,10 @@
 import React from 'react'
+import {ReactComponent as CartIcon} from '../assets/cart.svg'
 
 const Cart = () => {
     return (
         <div>
-            cart
+            <CartIcon />
         </div>
     )
 }
