@@ -18,6 +18,7 @@ const Container = styled.div`
 
 const Img = styled.img`
     width: 80%;
+    border-radius: 2rem;
     &:hover{
         box-shadow: -2px 9px 64px -17px rgba(0,0,0,0.75);
     }

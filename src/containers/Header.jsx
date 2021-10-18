@@ -17,6 +17,7 @@ const Container = styled.div`
 const Content = styled.div`
     display: grid;
     grid-template-columns: 5rem auto 5rem;
+    align-items: center;
     border-radius : 3rem;
     box-shadow: -2px 9px 64px -17px rgba(0,0,0,0.75);
     margin:  0 auto;
