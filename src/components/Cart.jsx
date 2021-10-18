@@ -1,12 +1,7 @@
 import React from 'react'
-import {ReactComponent as CartIcon} from '../assets/cart.svg'
+import { ReactComponent as CartIcon } from '../assets/cart.svg'
 
-const Cart = () => {
-    return (
-        <div>
-            <CartIcon />
-        </div>
-    )
-}
+const Cart = () => <CartIcon style={{ width: "2rem", height: "2rem" }} />
+
 
 export default Cart

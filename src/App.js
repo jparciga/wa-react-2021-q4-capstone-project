@@ -1,3 +1,4 @@
+import GlobalStyle from "./components/GlobalStyle";
 import Header from "./containers/Header";
 import Logo from "./components/Logo";
 import Search from "./components/Search";
@@ -7,6 +8,7 @@ import Home from "./pages/home";
 
 function App() {
   return (<>
+    <GlobalStyle />
     <Header>
       <Logo />
       <Search />
@@ -14,7 +16,7 @@ function App() {
     </Header>
     <Home />
     <Footer>
-      <p>Ecommerce created during Wizeline’s Academy React Bootcamp</p>
+      <p style={{ marginTop: "5rem" }}>Ecommerce created during Wizeline’s Academy React Bootcamp</p>
     </Footer>
   </>);
 }
