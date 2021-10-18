@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Navheader></Navheader>
-      <Home slides={slides[0].results}></Home>
+      <Home slides={slides.results}></Home>
       <Footer></Footer>
     </div>
   );
