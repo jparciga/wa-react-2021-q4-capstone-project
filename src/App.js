@@ -4,7 +4,7 @@ import Logo from "./components/Logo";
 import Search from "./components/Search";
 import Cart from "./components/Cart";
 import Footer from "./containers/Footer";
-import Home from "./pages/home";
+import Home from "./pages/Home";
 
 function App() {
   return (<>
