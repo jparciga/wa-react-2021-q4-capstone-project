@@ -3,6 +3,7 @@ import Header from "./containers/Header";
 import Logo from "./components/Logo";
 import Search from "./components/Search";
 import Cart from "./components/Cart";
+import Content from './containers/Content';
 import Footer from "./containers/Footer";
 import Home from "./pages/Home";
 
@@ -14,7 +15,9 @@ function App() {
       <Search />
       <Cart />
     </Header>
-    <Home />
+    <Content>
+      <Home />
+    </Content>
     <Footer>
       <p style={{ marginTop: "5rem" }}>Ecommerce created during Wizeline’s Academy React Bootcamp</p>
     </Footer>

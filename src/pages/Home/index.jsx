@@ -3,7 +3,6 @@ import React from 'react';
 import Main from './containers/Main';
 import Section from './containers/Section';
 import Slider from './components/Slider';
-import Carousel from './components/Carousel';
 import Grid from './components/Grid';
 
 import BannersMock from './mocks/en-us/featured-banners.json';
@@ -16,13 +15,23 @@ const Home = () => (
             <Slider data={BannersMock} />
         </Section>
         <Section>
-            <Carousel data={CategoriesMock} />
+            <Grid data={CategoriesToGridList(CategoriesMock)} columns={5} />
         </Section>
         <Section>
-            <Grid data={ProductsMock} />
+            <Grid data={ProductsToGridList(ProductsMock)}
+                columns={6} />
         </Section>
     </Main>
 )
 
+const ProductsToGridList = (data) => data.results.map(item => ({
+    url: item.data.mainimage.url,
+    title: item.data.name
+}))
+
+const CategoriesToGridList = (data) => data.results.map(item => ({
+    url: item.data.main_image.url,
+    title: item.data.name
+}))
 
 export default Home
