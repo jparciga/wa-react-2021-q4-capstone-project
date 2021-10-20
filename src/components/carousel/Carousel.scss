@@ -3,7 +3,6 @@
     display: flex;
     position: relative;
     flex-wrap: nowrap;
-    width: 100%;
 	padding: 20px 0;
 	overflow: hidden;
 	scroll-behavior: smooth;
@@ -27,8 +26,21 @@
     .carousel{
         overflow: visible;
         display: grid;
+        max-width: 100%;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 20px;
         padding: 10px;
+
+        .image{
+            min-width: 50%;
+            transition: .3s ease all;
+            box-shadow: 2px 2px 20px rgba(0,0,0, .3);
+            width: 100%;
+            vertical-align: top;
+            &:hover{                
+                cursor: pointer;
+            }
+            
+        }
     }
 }

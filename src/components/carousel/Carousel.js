@@ -1,4 +1,4 @@
-import { CarouselData } from "./CarouselData";
+import { CarouselData } from "../../utils/CarouselData";
 import ImageCarousel from "./ImageCarousel";
 import './Carousel.scss'
 export default function Carousel(){    
