@@ -1,4 +1,4 @@
-import {SliderData} from './SliderData'
+import {SliderData}  from '../../utils/SliderData'
 import './slider.scss'
 import { useState } from 'react'
 import ImageSlider  from './ImageSlider'
