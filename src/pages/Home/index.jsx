@@ -15,11 +15,16 @@ const Home = () => (
             <Slider data={BannersMock} />
         </Section>
         <Section>
-            <Grid data={CategoriesToGridList(CategoriesMock)} columns={5} />
+            <Grid
+                data={CategoriesToGridList(CategoriesMock)}
+                columns={5}
+            />
         </Section>
         <Section>
-            <Grid data={ProductsToGridList(ProductsMock)}
-                columns={6} />
+            <Grid
+                data={ProductsToGridList(ProductsMock)}
+                columns={6}
+            />
         </Section>
     </Main>
 )
@@ -29,13 +34,11 @@ const CategoriesToGridList = (data) => data.results.map(item => ({
     title: item.data.name
 }))
 
-const ProductsToGridList = (data) => {
-    console.log(data.results[0].data.name)
-    return data.results.map(item => ({
-        url: item.data.mainimage.url,
-        title: item.data.name
-    }))
-}
+const ProductsToGridList = (data) => data.results.map(item => ({
+    url: item.data.mainimage.url,
+    title: item.data.name
+}))
+
 
 
 
