@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const Grid = ({ data, columns }) => (
     <Container columns={columns} >
-        {data && data.map(item => <Image url={item.url} title={item.name} />)}
+        {data && data.map(item => <Image url={item.url} title={item.title} />)}
     </Container >
 )
 

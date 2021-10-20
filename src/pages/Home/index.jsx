@@ -24,14 +24,19 @@ const Home = () => (
     </Main>
 )
 
-const ProductsToGridList = (data) => data.results.map(item => ({
-    url: item.data.mainimage.url,
-    title: item.data.name
-}))
-
 const CategoriesToGridList = (data) => data.results.map(item => ({
     url: item.data.main_image.url,
     title: item.data.name
 }))
+
+const ProductsToGridList = (data) => {
+    console.log(data.results[0].data.name)
+    return data.results.map(item => ({
+        url: item.data.mainimage.url,
+        title: item.data.name
+    }))
+}
+
+
 
 export default Home
