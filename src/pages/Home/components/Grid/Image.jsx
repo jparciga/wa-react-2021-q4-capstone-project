@@ -27,9 +27,9 @@ const Img = styled.img`
     }
 `
 
-const ImageTitle = styled.div`
+const ImageTitle = styled.p`
   position: relative;
-  width: 80%;
+  width: 70%;
   top: 80%;
   margin: 0 auto;
   color : white;

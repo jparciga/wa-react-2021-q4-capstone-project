@@ -24,7 +24,7 @@ const Slider = ({ data }) => {
             {data.results.map((item, idx) => <Portrait
                 key={idx}
                 href={item.data.main_image.url}
-                title={item.title}
+                title={item.data.title}
                 isActive={idx === counter} />
             )}
         </div>
