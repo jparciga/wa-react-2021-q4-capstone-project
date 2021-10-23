@@ -18,6 +18,7 @@ const Container = styled.div`
 
 const Banner = styled.img`
   max-height: 45vh;
+  min-height: 35rem;
   width: 100%;
   object-fit: cover;
 `;

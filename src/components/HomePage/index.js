@@ -9,17 +9,17 @@ import productData from '../../mocks/en-us/featured-products.json';
 
 const ContentContainer = styled.div`
   margin: 0 12%;
-  padding: 0 1rem;
+  padding: 3rem 1rem;
 `;
 
 const HomePage = () => {
   return (
     <div>
       <BannerSlider banners={bannerData.results} />
-      {/*<ContentContainer>
+      <ContentContainer>
         <Categories categories={categoryData.results} />
-        <Products products={productData.results} />
-      </ContentContainer>*/}
+        {/* <Products products={productData.results} /> */}
+      </ContentContainer>
     </div>
   );
 };
