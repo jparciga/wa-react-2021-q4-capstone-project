@@ -4,14 +4,16 @@ import CategoryCarousel from "../categoryCarousel/CategoryCarousel";
 import ProductGrid from "../productGrid/ProductGrid";
 const Home = (props) => {
   return (
-    <div>
+    <React.Fragment>
       <Slider slides={props.slides}></Slider>
       <CategoryCarousel categories={props.categories}></CategoryCarousel>
       <ProductGrid
         products={props.products}
         categories={props.categories}
+        limit={10}
       ></ProductGrid>
-    </div>
+      <button onClick={()=>props.changeHome(false)}>View all products</button>
+    </React.Fragment>
   );
 };
 

@@ -1,37 +1,36 @@
-import React from 'react'
+import React,{Fragment} from 'react'
 import './ProductGrid.scss'
 const ProductGrid = (props) => {
     const products = props.products;
     const categories = props.categories;
-    return (
-      <div>
-        <div className="container page-wrapper">
-          <div className="page-inner">
-              {
-                  products.map((ele,index)=>{
-                      return (
-                        <div style={{ display: "inline-block" }} key={index}>
+    const limit = props.limit ? props.limit : products.length;
+
+    let prodsToShow = (limit) =>{
+      let prods = [];
+      for (let i = 0; i < limit; i++) {
+        prods.push(
+          <div style={{ display: "inline-block" }} key={'product'+i+products[i].data.category.id}>
                           <div className="el-wrapper">
                             <div className="box-up">
                               <img
                                 className="img"
-                                src={ele.data.mainimage.url}
+                                src={products[i].data.mainimage.url}
                                 alt=""
                               />
                               <div className="img-info">
                                 <div className="info-inner">
                                   <span className="p-name">
-                                    {ele.data.name}
+                                    {products[i].data.name}
                                   </span>
                                   <span className="p-company">
                                     {categories.find(
-                                      (cat) => cat.id === ele.data.category.id
+                                      (cat) => cat.id === products[i].data.category.id
                                     ).data.name}
                                   </span>
                                 </div>
                                 <div className="a-size">
                                   Available :{" "}
-                                  <span className="size">{ele.data.stock}</span>
+                                  <span className="size">{products[i].data.stock}</span>
                                 </div>
                               </div>
                             </div>
@@ -42,7 +41,7 @@ const ProductGrid = (props) => {
                               </div>
 
                               <span className="cart" >
-                                <span className="price">${ele.data.price}</span>
+                                <span className="price">${products[i].data.price}</span>
                                 <span className="add-to-cart">
                                   <span className="txt">Add in cart</span>
                                 </span>
@@ -50,12 +49,17 @@ const ProductGrid = (props) => {
                             </div>
                           </div>
                         </div>
-                      );
-                  })
-              }
-          </div>
+        )
+        
+      }
+      return prods
+    }
+    return (
+      <Fragment>
+        <div className="container page-wrapper">
+          <div className="page-inner">{prodsToShow(limit)}</div>
         </div>
-      </div>
+      </Fragment>
     );
 }
 
