@@ -2,7 +2,7 @@ import React from "react";
 
 const Navheader = (props) => {
   return (
-    <div>
+    <div style={{paddingBottom:"5%"}}>
       <nav className="nav">
         <span className="nav__brand">
           <img

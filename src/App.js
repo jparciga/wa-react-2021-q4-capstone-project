@@ -2,6 +2,7 @@ import "./App.scss";
 import Navheader from "./components/navheader/Navheader";
 import Home from "./components/home/Home";
 import Footer from "./components/footer/Footer";
+import ProductSideFilter from "./components/productSideFilter/ProductSideFilter"
 
 import slides from "./data/banners";
 import categories from "./data/categories";
@@ -11,7 +12,6 @@ import React, { useState } from "react";
 function App() {
   const [homeContent, sethomeContent] = useState(true);
   const handleHomeContentView = (val) => {
-    console.log(val)
     sethomeContent(val);
   };
   const home = (
@@ -23,11 +23,11 @@ function App() {
     ></Home>
   );
   return (
-    <div className="App">
+    <>
       <Navheader changeHome={handleHomeContentView} />
-      {homeContent ? home : <span>Test</span>}
+      {homeContent ? home : <ProductSideFilter />}
       <Footer />
-    </div>
+    </>
   );
 }
 

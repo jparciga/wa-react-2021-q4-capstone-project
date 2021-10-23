@@ -22,8 +22,9 @@ ul {
   background: $color-1;
   display: flex;
   align-items: center;
-  height: clamp(6rem, 8vw, 8rem);
-  position: sticky;
+  height: clamp(5rem, 7vw, 7rem);
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 9999;
   padding: 0 2rem;
@@ -105,10 +106,9 @@ ul {
 }
 
 footer {
-  position: sticky;
+  position: fixed;
   bottom: 0;
   width: 100%;
-  height: 80px;
   background: linear-gradient(0deg, rgb(62 1 15 / 94%) 0%, #b35757 100%);
   text-align: center;
   color: white;
