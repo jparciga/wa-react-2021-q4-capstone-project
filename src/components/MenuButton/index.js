@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Menu = styled.button`
@@ -11,16 +11,16 @@ const Menu = styled.button`
   cursor: pointer;
 
   .bar-1 {
-    transform: ${({isActive}) =>
+    transform: ${({ isActive }) =>
       isActive ? 'translateY(2px) rotateZ(-45deg)' : 'translateY(-4px)'};
   }
 
   .bar-2 {
-    opacity: ${({isActive}) => (isActive ? 0 : 1)};
+    opacity: ${({ isActive }) => (isActive ? 0 : 1)};
   }
 
   .bar-3 {
-    transform: ${({isActive}) =>
+    transform: ${({ isActive }) =>
       isActive ? 'translateY(-4px) rotateZ(45deg)' : 'translateY(4px)'};
   }
 `;

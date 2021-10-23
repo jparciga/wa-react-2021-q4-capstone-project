@@ -16,10 +16,10 @@ const HomePage = () => {
   return (
     <div>
       <BannerSlider banners={bannerData.results} />
-      <ContentContainer>
+      {/*<ContentContainer>
         <Categories categories={categoryData.results} />
         <Products products={productData.results} />
-      </ContentContainer>
+      </ContentContainer>*/}
     </div>
   );
 };

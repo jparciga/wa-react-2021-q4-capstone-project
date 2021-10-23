@@ -28,7 +28,7 @@ const Image = styled.img`
   margin-bottom: 1rem;
 `;
 
-const Product = ({name, background, tags, price, alt}) => (
+const Product = ({ name, background, tags, price, alt }) => (
   <ProductContainer>
     <Image src={background} alt={alt} />
     <div>{name}</div>
@@ -39,7 +39,7 @@ const Product = ({name, background, tags, price, alt}) => (
   </ProductContainer>
 );
 
-const Products = ({products}) => {
+const Products = ({ products }) => {
   return (
     <>
       <Title>Our products</Title>
@@ -51,7 +51,7 @@ const Products = ({products}) => {
             data: {
               name,
               price,
-              mainimage: {url, alt},
+              mainimage: { url, alt },
             },
           }) => (
             <Product

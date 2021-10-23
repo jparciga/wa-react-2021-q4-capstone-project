@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Search as SearchIcon, ShoppingBag as ShoppingIcon} from 'react-feather';
+import {
+  Search as SearchIcon,
+  ShoppingBag as ShoppingIcon,
+} from 'react-feather';
 import MenuButton from '../MenuButton';
 
 const StyledHeader = styled.header`

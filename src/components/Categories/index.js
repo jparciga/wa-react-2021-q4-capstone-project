@@ -23,14 +23,14 @@ const Image = styled.img`
   background-size: cover;
 `;
 
-const Card = ({name, imgSrc, alt}) => (
+const Card = ({ name, imgSrc, alt }) => (
   <Item>
     <CardName>{name}</CardName>
     <Image src={imgSrc} alt={alt} />
   </Item>
 );
 
-const Categories = ({categories}) => {
+const Categories = ({ categories }) => {
   return (
     <>
       <Title>Categories</Title>
@@ -40,7 +40,7 @@ const Categories = ({categories}) => {
             id,
             data: {
               name,
-              main_image: {alt, url},
+              main_image: { alt, url },
             },
           }) => (
             <Card key={`category-${id}`} name={name} imgSrc={url} alt={alt} />
