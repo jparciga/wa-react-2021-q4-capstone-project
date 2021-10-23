@@ -10,7 +10,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <HomePage />
-      <Footer />
+      {/*<Footer />*/}
     </div>
   );
 }
