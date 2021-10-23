@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Search as SearchIcon, ShoppingBag as ShoppingIcon} from 'react-feather';
 import MenuButton from '../MenuButton';
 
 const StyledHeader = styled.header`
@@ -23,9 +24,11 @@ const Title = styled.header`
   justify-content: center;
 `;
 
-const Menu = styled.div`
-  justify-self: end;
-  color: gray;
+const Button = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: not-allowed;
+  margin: 0 0.3rem;
 `;
 
 const Header = () => {
@@ -36,10 +39,12 @@ const Header = () => {
           <MenuButton />
         </nav>
         <Title>ASBESTO</Title>
-        <div>
-          <button>Search</button>
-          <button>Cart</button>
-        </div>
+        <Button>
+          <SearchIcon size={25} />
+        </Button>
+        <Button>
+          <ShoppingIcon size={24} />
+        </Button>
       </HeaderContainer>
     </StyledHeader>
   );
