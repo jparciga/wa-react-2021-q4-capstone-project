@@ -5,18 +5,25 @@ import Category from './components/Category';
 import Content from 'containers/Content';
 import Title from './components/Title'
 import Grid from 'components/Grid';
+import Product from 'components/Product';
 
 import ProductCategoriesMock from 'mocks/en-us/product-categories.json';
 import ProductsMock from 'mocks/en-us/products.json';
 
 const Products = () => {
-    const [selectedCategory, setSelectedCategory] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [products, setProducts] = useState([...ProductsMock.results]);
 
     useEffect(() => {
+        let products = [];
+        if (selectedCategory) {
+            products = ProductsMock.results.filter(product => product.data.category.id === selectedCategory);
+        } else {
+            products = ProductsMock.results;
+        }
 
+        setProducts(products);
     }, [selectedCategory])
-
-
 
     return (
         <Layout>
@@ -30,11 +37,22 @@ const Products = () => {
             </SideBar>
             <Content>
                 <Title />
-                {selectedCategory}
-                Grid of products
+                <Grid
+                    data={ProductsToGridList(products)}
+                    columns={6}
+                    CustomComponent={Product}
+                />
             </Content>
         </Layout>
     )
 }
+
+const ProductsToGridList = (data) => data.map(item => ({
+    url: item.data.mainimage.url,
+    title: item.data.name,
+    category: item.data.category.slug,
+    price: item.data.price
+}))
+
 
 export default Products
