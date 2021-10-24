@@ -43,8 +43,6 @@ const SideBar = ({ categories = [], open = false }) => {
     }));
   };
 
-  console.log(activeFilters);
-
   return (
     <MenuContainer open={open}>
       <UnorderedList>
