@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
   height: 30px;
-  background-color: floralwhite;
+  background-color: #ebeae8;
   padding: 2em;
   font-style: italic;
   text-align: center;
