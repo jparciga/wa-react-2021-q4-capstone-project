@@ -71,6 +71,7 @@ const ProductSideFilter = () => {
         <ProductGrid
           products={productsToShow}
           categories={categories.results}
+          pagination={true}
         ></ProductGrid>
       </div>
     </div>

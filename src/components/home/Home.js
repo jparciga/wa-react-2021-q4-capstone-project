@@ -3,7 +3,7 @@ import Slider from "../slider/Slider";
 import CategoryCarousel from "../categoryCarousel/CategoryCarousel";
 import ProductGrid from "../productGrid/ProductGrid";
 const Home = (props) => {
-  return (
+  return (  
     <React.Fragment>
       <Slider slides={props.slides}></Slider>
       <CategoryCarousel categories={props.categories}></CategoryCarousel>
@@ -12,7 +12,7 @@ const Home = (props) => {
         categories={props.categories}
         limit={10}
       ></ProductGrid>
-      <button onClick={()=>props.changeHome(false)}>View all products</button>
+      <button className="button" onClick={()=>props.changeHome(false)}>View all products</button>
     </React.Fragment>
   );
 };
