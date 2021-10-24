@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from "constants/colors";
 
 
 const CategoryLayout = styled.div`
@@ -10,7 +11,7 @@ text-align: center;
     }
 
     & > img {
-            border : ${props => props.isActive ? "solid 0.2em #ccc" : "none"};
+            border : ${props => props.isActive ? `solid 0.3em ${colors.JELLYBEAN}` : "none"};
      }
 `
 

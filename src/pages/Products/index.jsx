@@ -6,6 +6,7 @@ import Content from 'containers/Content';
 import Title from './components/Title'
 import Grid from 'components/Grid';
 import Product from 'components/Product';
+import Pagination from './components/Pagination';
 
 import ProductCategoriesMock from 'mocks/en-us/product-categories.json';
 import ProductsMock from 'mocks/en-us/products.json';
@@ -50,6 +51,7 @@ const Products = () => {
                     columns={6}
                     CustomComponent={Product}
                 />
+                {products.length ? <Pagination /> : null}
             </Content>
         </Layout>
     )
