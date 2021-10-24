@@ -50,6 +50,7 @@ const CategoryContainer = styled.div`
   grid-auto-flow: dense;
   grid-auto-rows: auto;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin-bottom: 3rem;
 `;
 
 const Card = ({ name, imgSrc, alt }) => (

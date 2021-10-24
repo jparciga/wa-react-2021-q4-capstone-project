@@ -3,47 +3,71 @@ import styled from 'styled-components';
 
 const ProductContainer = styled.div`
   display: grid;
-  justify-items: center;
-  border-radius: 10px;
-  box-shadow: 1px 1px 7px -1px rgba(0, 0, 0, 0.68);
+  gap: 2rem;
+  grid-auto-flow: dense;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin-bottom: 3rem;
+`;
 
-  div {
-    margin: 5px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+const ProductContent = styled.div`
+  display: grid;
+  justify-items: center;
+  border-radius: 2px;
+  border: solid 1px #cbc8c1;
+  box-shadow: 2px 3px 5px -2px rgba(0, 0, 0, 0.32);
 `;
 
 const Title = styled.div`
-  margin: 1em;
-  font-weight: 900;
   font-size: 30px;
+  margin-bottom: 3rem;
 `;
 
 const Image = styled.img`
-  width: 50%;
+  width: 70%;
   flex-shrink: 0;
   background-position: center;
   background-size: cover;
-  margin-bottom: 1rem;
+`;
+
+const Description = styled.div`
+  width: 100%;
+  text-align: center;
+  background-color: linen;
+  min-height: 6rem;
+  border-top: solid 1px #cbc8c1;
+  padding: 0.5rem 0;
+`;
+
+const ProductName = styled.div`
+  color: black;
+  font-size: 18px;
+  padding-bottom: 0.3rem;
+`;
+
+const ProductPrice = styled.div`
+  font-weight: 800;
+  padding-bottom: 1rem;
 `;
 
 const Product = ({ name, background, tags, price, alt }) => (
-  <ProductContainer>
+  <ProductContent>
     <Image src={background} alt={alt} />
-    <div>{name}</div>
-    <div>{tags.join(', ')}</div>
-    <div>
-      <b>{price} $</b>
-    </div>
-  </ProductContainer>
+    <Description>
+      <ProductName>{name}</ProductName>
+      <ProductPrice>
+        <b>{price} $</b>
+      </ProductPrice>
+      <div>{tags.join(', ')}</div>
+    </Description>
+  </ProductContent>
 );
 
 const Products = ({ products }) => {
   return (
     <>
-      <Title>Our products</Title>
-      <div className="grid-container">
+      <Title>Featured products</Title>
+      <ProductContainer>
         {products.map(
           ({
             id,
@@ -64,7 +88,7 @@ const Products = ({ products }) => {
             />
           )
         )}
-      </div>
+      </ProductContainer>
     </>
   );
 };

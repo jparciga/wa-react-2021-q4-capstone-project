@@ -18,7 +18,7 @@ const HomePage = () => {
       <BannerSlider banners={bannerData.results} />
       <ContentContainer>
         <Categories categories={categoryData.results} />
-        {/* <Products products={productData.results} /> */}
+        <Products products={productData.results} />
       </ContentContainer>
     </div>
   );
