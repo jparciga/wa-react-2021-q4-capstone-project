@@ -1,21 +1,21 @@
 import React from 'react'
 import styled from 'styled-components';
-import colors from '../../../../constants/colors';
+import ImageTitle from '../Texts/ImageTitle';
 
-const Image = ({ url, title }) => {
-    return (
-        <Container>
-            <ImageTitle>{title}</ImageTitle>
-            <Img src={url} title={title} />
-        </Container>
-    )
-}
+const Image = ({ url, title, children }) => (
+    <Container>
+        <ImageTitle>{title}</ImageTitle>
+        {children}
+        <Img src={url} title={title} />
+    </Container>
+)
 
 const Container = styled.div`
    transition: transform .2s;
    text-align: center;
    &:hover{
     transform: scale(1.5);
+    z-index : 5;
    }
 `
 
@@ -27,14 +27,5 @@ const Img = styled.img`
     }
 `
 
-const ImageTitle = styled.p`
-  position: relative;
-  width: 70%;
-  top: 80%;
-  margin: 0 auto;
-  color : white;
-  text-shadow : 2px 2px 8px black;
-  font-weight : bold;
-  `
 
 export default Image

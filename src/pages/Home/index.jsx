@@ -4,6 +4,7 @@ import Main from './containers/Main';
 import Section from './containers/Section';
 import Slider from './components/Slider';
 import Grid from './components/Grid';
+import Product from './components/Product';
 
 import BannersMock from './mocks/en-us/featured-banners.json';
 import CategoriesMock from './mocks/en-us/product-categories.json';
@@ -24,6 +25,7 @@ const Home = () => (
             <Grid
                 data={ProductsToGridList(ProductsMock)}
                 columns={6}
+                CustomComponent={Product}
             />
         </Section>
     </Main>
@@ -36,7 +38,9 @@ const CategoriesToGridList = (data) => data.results.map(item => ({
 
 const ProductsToGridList = (data) => data.results.map(item => ({
     url: item.data.mainimage.url,
-    title: item.data.name
+    title: item.data.name,
+    category : item.data.category.slug,
+    price: item.data.price
 }))
 
 
