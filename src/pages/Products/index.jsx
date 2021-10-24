@@ -25,10 +25,12 @@ const Products = () => {
                     key={category.id}
                     category={category}
                     onClick={() => setSelectedCategory(category.id)}
+                    isActive={selectedCategory === category.id}
                 />)}
             </SideBar>
             <Content>
                 <Title />
+                {selectedCategory}
                 Grid of products
             </Content>
         </Layout>
