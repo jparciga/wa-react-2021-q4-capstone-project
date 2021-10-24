@@ -3,9 +3,13 @@ import styled from 'styled-components';
 import Image from './Image';
 import PropTypes from 'prop-types';
 
-const Grid = ({ data, columns }) => (
+const Grid = ({ data, columns, CustomComponent }) => (
     <Container columns={columns} >
-        {data && data.map(item => <Image url={item.url} title={item.name} />)}
+        {data && data.map(
+            item => CustomComponent ?
+                <CustomComponent {...item} /> :
+                <Image url={item.url} title={item.title} />
+        )}
     </Container >
 )
 
