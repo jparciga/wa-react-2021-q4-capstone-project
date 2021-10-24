@@ -7,13 +7,23 @@ import Title from './components/Title'
 import Grid from 'components/Grid';
 import Product from 'components/Product';
 import Pagination from './components/Pagination';
+import Loading from 'components/Loading';
 
 import ProductCategoriesMock from 'mocks/en-us/product-categories.json';
 import ProductsMock from 'mocks/en-us/products.json';
 
 const Products = () => {
+    const [isLoading, setIsLoading] = useState(true);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [products, setProducts] = useState([...ProductsMock.results]);
+
+
+    useEffect(() => {
+        const loadingInterval = setInterval(() => {
+            setIsLoading(false);
+        }, 2000);
+        return () => clearInterval(loadingInterval);
+    }, [])
 
     useEffect(() => {
         let products = [];
@@ -44,15 +54,17 @@ const Products = () => {
                     isActive={selectedCategories.includes(category.id)}
                 />)}
             </SideBar>
-            <Content>
-                <Title />
-                <Grid
-                    data={ProductsToGridList(products)}
-                    columns={6}
-                    CustomComponent={Product}
-                />
-                {products.length ? <Pagination /> : null}
-            </Content>
+            {isLoading ? <Loading /> :
+                <Content>
+                    <Title />
+                    <Grid
+                        data={ProductsToGridList(products)}
+                        columns={6}
+                        CustomComponent={Product}
+                    />
+                    {products.length ? <Pagination /> : null}
+                </Content>
+            }
         </Layout>
     )
 }
