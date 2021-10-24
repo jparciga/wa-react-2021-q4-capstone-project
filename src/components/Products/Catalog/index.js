@@ -3,9 +3,21 @@ import List from '../List';
 import styled from 'styled-components';
 import useFilter from '../../../hooks/useFilter';
 import Skeleton from '../Skeleton';
+import SideBar from '../../SideBar';
 
 const CatalogContainer = styled.div`
   margin-top: 4rem;
+`;
+
+const PageContent = styled.div`
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 17rem 1fr;
+`;
+
+const Title = styled.div`
+  font-size: 30px;
+  margin-bottom: 3rem;
 `;
 
 const processFilters = filters => {
@@ -21,7 +33,7 @@ const processFilters = filters => {
   return areFiltersActive ? filters : null;
 };
 
-const Catalog = ({ products = [] }) => {
+const Catalog = ({ products = [], categories = [] }) => {
   const [activeFilters] = useFilter();
   const [isLoading, setIsLoading] = useState(true);
   const filters = processFilters(activeFilters);
@@ -33,11 +45,14 @@ const Catalog = ({ products = [] }) => {
 
   return (
     <CatalogContainer>
-      <h1>Our products</h1>
+      <Title>Our products</Title>
       {isLoading ? (
         <Skeleton amount={7} />
       ) : (
-        <List products={products} filters={filters} pagination />
+        <PageContent>
+          <SideBar categories={categories} />
+          <List products={products} filters={filters} pagination />
+        </PageContent>
       )}
     </CatalogContainer>
   );

@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import {
   Search as SearchIcon,
   ShoppingBag as ShoppingIcon,
 } from 'react-feather';
-import productCategories from '../../mocks/en-us/product-categories.json';
 import useRoute from '../../hooks/useRoute';
 import MenuButton from '../MenuButton';
-import SideBar from '../SideBar';
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -43,13 +41,11 @@ const Button = styled.button`
 
 const Header = () => {
   const [, setRoute] = useRoute();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <>
       <StyledHeader>
         <HeaderContainer>
-          <MenuButton onClick={() => setIsMenuOpen(value => !value)} />
+          <MenuButton />
           <Title onClick={() => setRoute('/')}>ASBESTO</Title>
           <Button>
             <SearchIcon size={25} />
@@ -59,7 +55,6 @@ const Header = () => {
           </Button>
         </HeaderContainer>
       </StyledHeader>
-      <SideBar categories={productCategories.results} open={isMenuOpen} />
     </>
   );
 };

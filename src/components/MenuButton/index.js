@@ -35,16 +35,11 @@ const Bar = styled.span`
 `;
 
 const MenuButton = ({ onClick = () => {} }) => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive] = useState(false);
   const barAmount = new Array(3).fill();
 
-  const handleOnClick = () => {
-    setIsActive(value => !value);
-    onClick();
-  };
-
   return (
-    <Menu isActive={isActive} onClick={handleOnClick}>
+    <Menu isActive={isActive}>
       {barAmount.map((_, idx) => (
         <Bar key={`menu-bar-${idx + 1}`} className={`bar-${idx + 1}`} />
       ))}

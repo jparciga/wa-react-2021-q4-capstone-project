@@ -8,7 +8,7 @@ const ProductContainer = styled.div`
   grid-auto-flow: dense;
   grid-auto-rows: auto;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 `;
 
 const ProductContent = styled.div`
@@ -47,6 +47,7 @@ const ProductPrice = styled.div`
 `;
 
 const NoProducts = styled.h2`
+  margin-top: 5rem;
   margin-bottom: 100%;
 `;
 
@@ -96,7 +97,7 @@ const List = ({ products, filters = null, pagination = false }) => {
     : products;
 
   return (
-    <>
+    <div>
       <ProductContainer>
         {filteredProducts.map(
           ({
@@ -133,7 +134,7 @@ const List = ({ products, filters = null, pagination = false }) => {
           </Button>
         </Navigation>
       )}
-    </>
+    </div>
   );
 };
 

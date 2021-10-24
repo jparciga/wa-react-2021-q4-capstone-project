@@ -2,37 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 import useFilter from '../../hooks/useFilter';
 
-const MenuContainer = styled.nav`
-  position: fixed;
-  background-color: #f5f5f5;
-  border-right: solid 1px #e3e2e0;
-  height: 100%;
-  top: 0;
-  left: ${({ open }) => (open ? '0rem' : '-18rem')};
-  overflow-x: hidden;
-  transition: 0.4s;
-  z-index: 1;
-  width: 17rem;
-`;
+const MenuContainer = styled.div``;
 
 const UnorderedList = styled.ul`
-  margin-top: 6rem;
   list-style-type: none;
   padding: 0;
 `;
 
 const Item = styled.li`
   padding: 0.5rem 2rem;
-  font-size: 23px;
-  text-align: center;
-  margin: 1.5rem;
+  font-size: 20px;
+  margin: 0.5rem;
   cursor: pointer;
-  transition: 0.4s ease-in-out;
+  transition: 0.2s ease-in-out;
   border-bottom: solid 3px
     ${({ isActive }) => (isActive ? '#d0c0a7' : 'transparent')};
 `;
 
-const SideBar = ({ categories = [], open = false }) => {
+const Title = styled.h3`
+  font-size: 23px;
+  margin: 0px;
+  padding: 0 2rem;
+`;
+
+const SideBar = ({ categories = [] }) => {
   const [activeFilters, setActiveFilters] = useFilter();
 
   const onFilterClick = filterId => {
@@ -44,7 +37,8 @@ const SideBar = ({ categories = [], open = false }) => {
   };
 
   return (
-    <MenuContainer open={open}>
+    <MenuContainer>
+      <Title>Filter by category</Title>
       <UnorderedList>
         {categories.map(({ id, data: { name } }) => (
           <Item

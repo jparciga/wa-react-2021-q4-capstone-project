@@ -30,7 +30,10 @@ const MainPage = () => {
       ) : (
         <>
           <ContentContainer>
-            <Catalog products={productData.results} />
+            <Catalog
+              products={productData.results}
+              categories={categoryData.results}
+            />
           </ContentContainer>
         </>
       )}

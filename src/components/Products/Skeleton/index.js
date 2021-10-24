@@ -52,6 +52,13 @@ const Spinner = styled.div`
   animation: ${spinAnimation} infinite 4s linear;
 `;
 
+const Content = styled.div`
+  display: grid;
+  gap: 2rem;
+  grid-auto-rows: auto;
+  grid-template-columns: 17rem 1fr;
+`;
+
 const Product = () => (
   <ProductContent>
     <ImagePlaceholder />
@@ -66,11 +73,14 @@ const Product = () => (
 const Skeleton = ({ amount = 0 }) => {
   const placeholders = new Array(amount).fill();
   return (
-    <ProductContainer>
-      {placeholders.map((_, idx) => (
-        <Product key={`product-skeleton-${idx}`} />
-      ))}
-    </ProductContainer>
+    <Content>
+      <div />
+      <ProductContainer>
+        {placeholders.map((_, idx) => (
+          <Product key={`product-skeleton-${idx}`} />
+        ))}
+      </ProductContainer>
+    </Content>
   );
 };
 
