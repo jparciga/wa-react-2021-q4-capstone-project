@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import useFilter from '../../hooks/useFilter';
 
 const MenuContainer = styled.nav`
   position: fixed;
@@ -21,18 +22,40 @@ const UnorderedList = styled.ul`
 `;
 
 const Item = styled.li`
-  padding: 0 2rem;
-  font-size: 25px;
+  padding: 0.5rem 2rem;
+  font-size: 23px;
   text-align: center;
   margin: 1.5rem;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+  border-bottom: solid 3px
+    ${({ isActive }) => (isActive ? '#d0c0a7' : 'transparent')};
 `;
 
 const SideBar = ({ categories = [], open = false }) => {
+  const [activeFilters, setActiveFilters] = useFilter();
+
+  const onFilterClick = filterId => {
+    const isActive = activeFilters[filterId] || false;
+    setActiveFilters(filters => ({
+      ...filters,
+      [filterId]: !isActive,
+    }));
+  };
+
+  console.log(activeFilters);
+
   return (
     <MenuContainer open={open}>
       <UnorderedList>
         {categories.map(({ id, data: { name } }) => (
-          <Item key={`category-list-${id}`}>{name}</Item>
+          <Item
+            key={`category-list-${id}`}
+            isActive={activeFilters[id]}
+            onClick={() => onFilterClick(id)}
+          >
+            {name}
+          </Item>
         ))}
       </UnorderedList>
     </MenuContainer>
