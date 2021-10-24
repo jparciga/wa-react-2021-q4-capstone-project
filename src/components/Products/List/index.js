@@ -47,7 +47,7 @@ const ProductPrice = styled.div`
 `;
 
 const NoProducts = styled.h2`
-  margin-top: 5rem;
+  margin-top: 3rem;
   margin-bottom: 100%;
 `;
 
