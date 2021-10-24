@@ -4,12 +4,12 @@ import Main from './containers/Main';
 import Section from './containers/Section';
 import Slider from './components/Slider';
 import Grid from 'components/Grid';
-import Product from './components/Product';
+import Product from 'components/Product';
 import Button from 'components/Button';
 
-import BannersMock from './mocks/en-us/featured-banners.json';
-import CategoriesMock from './mocks/en-us/product-categories.json';
-import ProductsMock from './mocks/en-us/featured-products.json';
+import BannersMock from 'mocks/en-us/featured-banners.json';
+import ProductCategoriesMock from 'mocks/en-us/product-categories.json';
+import FeaturedProductsMock from 'mocks/en-us/featured-products.json';
 
 const Home = ({ setPage }) => (
     <Main>
@@ -18,13 +18,13 @@ const Home = ({ setPage }) => (
         </Section>
         <Section>
             <Grid
-                data={CategoriesToGridList(CategoriesMock)}
+                data={CategoriesToGridList(ProductCategoriesMock)}
                 columns={5}
             />
         </Section>
         <Section>
             <Grid
-                data={ProductsToGridList(ProductsMock)}
+                data={ProductsToGridList(FeaturedProductsMock)}
                 columns={6}
                 CustomComponent={Product}
             />
