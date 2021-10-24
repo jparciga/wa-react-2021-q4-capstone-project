@@ -3,7 +3,7 @@ import React from 'react';
 import Main from './containers/Main';
 import Section from './containers/Section';
 import Slider from './components/Slider';
-import Grid from './components/Grid';
+import Grid from 'components/Grid';
 import Product from './components/Product';
 
 import BannersMock from './mocks/en-us/featured-banners.json';

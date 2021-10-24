@@ -1,6 +1,6 @@
 import React from 'react'
-import Image from './Grid/Image';
-import ImageInfo from './Texts/ImageInfo';
+import Image from 'components/Grid/Image';
+import ImageInfo from 'components/Texts/ImageInfo';
 
 
 const Product = ({ title, url, category, price }) => {
