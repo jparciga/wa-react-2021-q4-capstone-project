@@ -6,6 +6,7 @@ let observers = [];
 const setRoute = route => {
   globalRoute = route;
   observers.forEach(updater => updater(globalRoute));
+  window.scrollTo(0, 0);
 };
 
 const useRoute = () => {
