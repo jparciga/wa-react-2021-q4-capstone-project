@@ -3,10 +3,12 @@ import styled from 'styled-components';
 import useRoute from '../../hooks/useRoute';
 import BannerSlider from '../BannerSlider';
 import Categories from '../Categories';
-import Products from '../Products';
+import Fetaured from '../Products/Fetaured';
 import bannerData from '../../mocks/en-us/featured-banners.json';
 import categoryData from '../../mocks/en-us/product-categories.json';
-import productData from '../../mocks/en-us/featured-products.json';
+import featProductsData from '../../mocks/en-us/featured-products.json';
+import productData from '../../mocks/en-us/products.json';
+import Catalog from '../Products/Catalog';
 
 const ContentContainer = styled.div`
   margin: 0 12%;
@@ -22,13 +24,13 @@ const MainPage = () => {
           <BannerSlider banners={bannerData.results} />
           <ContentContainer>
             <Categories categories={categoryData.results} />
-            <Products products={productData.results} />
+            <Fetaured products={featProductsData.results} />
           </ContentContainer>
         </>
       ) : (
         <>
           <ContentContainer>
-            <h1>This is the Product List Page</h1>
+            <Catalog products={productData.results} />
           </ContentContainer>
         </>
       )}

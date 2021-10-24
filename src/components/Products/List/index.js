@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import useRoute from '../../hooks/useRoute';
+import { ArrowLeft, ArrowRight } from 'react-feather';
 
 const ProductContainer = styled.div`
   display: grid;
@@ -17,11 +17,6 @@ const ProductContent = styled.div`
   border-radius: 2px;
   border: solid 1px #cbc8c1;
   box-shadow: 2px 3px 5px -2px rgba(0, 0, 0, 0.32);
-`;
-
-const Title = styled.div`
-  font-size: 30px;
-  margin-bottom: 3rem;
 `;
 
 const Image = styled.img`
@@ -51,36 +46,30 @@ const ProductPrice = styled.div`
   padding-bottom: 1rem;
 `;
 
-const ButtonContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 19rem;
-  margin-bottom: 3rem;
+const NoProducts = styled.h2`
+  margin-bottom: 100%;
 `;
 
-const Button = styled.div`
-  background-color: #e9e1d2;
+const Navigation = styled.div`
+  display: flex;
+  margin: 0 auto;
+`;
+
+const Pages = styled.div`
+  font-size: 29px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: black;
+`;
+
+const Button = styled.button`
+  background-color: transparent;
   border: none;
-  cursor: pointer;
-  color: #635f5f;
-  font-size: 20px;
-  padding: 1rem;
-  border-radius: 3px;
-  box-shadow: 2px 3px 5px -4px rgba(0, 0, 0, 0.32);
-  text-align: center;
-  transition: 0.2s ease-in-out;
-  border: solid 1px transparent;
-
-  &:hover {
-    border: solid 1px #d4d1d1;
-  }
-
-  &:active {
-    margin-left: 1px;
-    background-color: #dedbd5;
-  }
+  cursor: not-allowed;
 `;
 
-const Product = ({ name, background, tags, price, alt }) => (
+const Product = ({ name, background, category, price, alt }) => (
   <ProductContent>
     <Image src={background} alt={alt} />
     <Description>
@@ -88,24 +77,34 @@ const Product = ({ name, background, tags, price, alt }) => (
       <ProductPrice>
         <b>{price} $</b>
       </ProductPrice>
-      <div>{tags.join(', ')}</div>
+      <div>{category}</div>
     </Description>
   </ProductContent>
 );
 
-const Products = ({ products }) => {
-  const [, setRoute] = useRoute();
+const List = ({ products, filters = null, pagination = false }) => {
+  const filteredProducts = filters
+    ? products.filter(product => {
+        const {
+          data: {
+            category: { id },
+          },
+        } = product;
+
+        return filters[id];
+      })
+    : products;
+
   return (
     <>
-      <Title>Featured products</Title>
       <ProductContainer>
-        {products.map(
+        {filteredProducts.map(
           ({
             id,
-            tags,
             data: {
               name,
               price,
+              category: { slug },
               mainimage: { url, alt },
             },
           }) => (
@@ -113,19 +112,29 @@ const Products = ({ products }) => {
               key={`product-${id}`}
               background={url}
               name={name}
-              tags={tags}
+              category={slug}
               price={price}
               alt={alt}
             />
           )
         )}
+        {!filteredProducts.length && (
+          <NoProducts>No products available</NoProducts>
+        )}
       </ProductContainer>
-      <ButtonContainer>
-        <div />
-        <Button onClick={() => setRoute('/products')}>View all products</Button>
-      </ButtonContainer>
+      {pagination && filteredProducts.length && (
+        <Navigation>
+          <Button>
+            <ArrowLeft size={26} />
+          </Button>
+          <Pages>1</Pages>
+          <Button>
+            <ArrowRight size={26} />
+          </Button>
+        </Navigation>
+      )}
     </>
   );
 };
 
-export default Products;
+export default List;
