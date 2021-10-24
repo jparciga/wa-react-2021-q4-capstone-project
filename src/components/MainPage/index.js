@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
+import useRoute from '../../hooks/useRoute';
 import BannerSlider from '../BannerSlider';
 import Categories from '../Categories';
 import Products from '../Products';
@@ -14,25 +14,25 @@ const ContentContainer = styled.div`
 `;
 
 const MainPage = () => {
+  const [route] = useRoute();
   return (
-    <div>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <BannerSlider banners={bannerData.results} />
-            <ContentContainer>
-              <Categories categories={categoryData.results} />
-              <Products products={productData.results} />
-            </ContentContainer>
-          </Route>
-          <Route path="/products">
-            <ContentContainer>
-              <h1>This is the Product List Page</h1>
-            </ContentContainer>
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    <>
+      {route === '/' ? (
+        <>
+          <BannerSlider banners={bannerData.results} />
+          <ContentContainer>
+            <Categories categories={categoryData.results} />
+            <Products products={productData.results} />
+          </ContentContainer>
+        </>
+      ) : (
+        <>
+          <ContentContainer>
+            <h1>This is the Product List Page</h1>
+          </ContentContainer>
+        </>
+      )}
+    </>
   );
 };
 

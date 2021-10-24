@@ -4,6 +4,7 @@ import {
   Search as SearchIcon,
   ShoppingBag as ShoppingIcon,
 } from 'react-feather';
+import useRoute from '../../hooks/useRoute';
 import MenuButton from '../MenuButton';
 
 const StyledHeader = styled.header`
@@ -20,11 +21,14 @@ const HeaderContainer = styled.div`
   min-height: 2rem;
 `;
 
-const Title = styled.header`
+const Title = styled.div`
   font-size: 35px;
   width: 100%;
   display: flex;
   justify-content: center;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
 `;
 
 const Button = styled.button`
@@ -35,13 +39,14 @@ const Button = styled.button`
 `;
 
 const Header = () => {
+  const [, setRoute] = useRoute();
   return (
     <StyledHeader>
       <HeaderContainer>
         <nav>
           <MenuButton />
         </nav>
-        <Title>ASBESTO</Title>
+        <Title onClick={() => setRoute('/')}>ASBESTO</Title>
         <Button>
           <SearchIcon size={25} />
         </Button>

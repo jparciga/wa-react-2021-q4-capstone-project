@@ -1,6 +1,6 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import useRoute from '../../hooks/useRoute';
 
 const ProductContainer = styled.div`
   display: grid;
@@ -94,7 +94,7 @@ const Product = ({ name, background, tags, price, alt }) => (
 );
 
 const Products = ({ products }) => {
-  const history = useHistory();
+  const [, setRoute] = useRoute();
   return (
     <>
       <Title>Featured products</Title>
@@ -122,9 +122,7 @@ const Products = ({ products }) => {
       </ProductContainer>
       <ButtonContainer>
         <div />
-        <Button onClick={() => history.push('/products')}>
-          View all products
-        </Button>
+        <Button onClick={() => setRoute('/products')}>View all products</Button>
       </ButtonContainer>
     </>
   );

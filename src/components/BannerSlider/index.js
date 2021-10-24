@@ -48,7 +48,7 @@ const BannerSlider = ({ banners = [], transitionTime = 5000 }) => {
     infinite: true,
     fade: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     arrows: false,

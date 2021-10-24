@@ -4,15 +4,13 @@ import MainPage from './components/MainPage';
 import GlobalStyle from './GlobalStyle';
 import '@fontsource/metropolis';
 
-function App() {
-  return (
-    <div>
-      <GlobalStyle />
-      <Header />
-      <MainPage />
-      <Footer />
-    </div>
-  );
-}
+const App = () => (
+  <div>
+    <GlobalStyle />
+    <Header />
+    <MainPage />
+    <Footer />
+  </div>
+);
 
 export default App;
