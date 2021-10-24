@@ -11,19 +11,27 @@ import ProductCategoriesMock from 'mocks/en-us/product-categories.json';
 import ProductsMock from 'mocks/en-us/products.json';
 
 const Products = () => {
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedCategories, setSelectedCategories] = useState([]);
     const [products, setProducts] = useState([...ProductsMock.results]);
 
     useEffect(() => {
         let products = [];
-        if (selectedCategory) {
-            products = ProductsMock.results.filter(product => product.data.category.id === selectedCategory);
+        if (selectedCategories.length > 0) {
+            products = ProductsMock.results.filter(product => selectedCategories.includes(product.data.category.id));
         } else {
             products = ProductsMock.results;
         }
 
         setProducts(products);
-    }, [selectedCategory])
+    }, [selectedCategories])
+
+    const handleCategoryClick = (category) => {
+        if (selectedCategories.includes(category)) {
+            setSelectedCategories(selectedCategories.filter(item => item !== category));
+        } else {
+            setSelectedCategories([...selectedCategories, category]);
+        }
+    }
 
     return (
         <Layout>
@@ -31,8 +39,8 @@ const Products = () => {
                 {ProductCategoriesMock.results.map((category) => <Category
                     key={category.id}
                     category={category}
-                    onClick={() => setSelectedCategory(category.id)}
-                    isActive={selectedCategory === category.id}
+                    onClick={() => handleCategoryClick(category.id)}
+                    isActive={selectedCategories.includes(category.id)}
                 />)}
             </SideBar>
             <Content>

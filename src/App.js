@@ -13,21 +13,23 @@ import Products from "pages/Products";
 function App() {
   const [page, setPage] = useState('home');
 
-  return (<>
-    <GlobalStyle />
-    <Header>
-      <Logo goHome={() => setPage("home")} />
-      <Search />
-      <Cart />
-    </Header>
-    <Content>
-      {page === "home" && <Home setPage={setPage} />}
-      {page === "products" && <Products setPage={setPage} />}
-    </Content>
-    <Footer>
-      <p style={{ marginTop: "5rem" }}>Ecommerce created during Wizeline’s Academy React Bootcamp</p>
-    </Footer>
-  </>);
+  return (
+    <>
+
+        <GlobalStyle />
+        <Header>
+          <Logo goHome={() => setPage("home")} />
+          <Search />
+          <Cart />
+        </Header>
+        <Content>
+          {page === "home" && <Home setPage={setPage} />}
+          {page === "products" && <Products setPage={setPage} />}
+        </Content>
+        <Footer>
+          <p>Ecommerce created during Wizeline’s Academy React Bootcamp</p>
+        </Footer>
+    </>);
 }
 
 export default App;
