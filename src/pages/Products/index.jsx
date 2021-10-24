@@ -1,9 +1,10 @@
 import React from 'react'
+import Title from './components/Title'
 
 const Products = () => {
     return (
         <div>
-            Products Page
+            <Title />
         </div>
     )
 }
