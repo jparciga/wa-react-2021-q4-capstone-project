@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import {
   Search as SearchIcon,
   ShoppingBag as ShoppingIcon,
 } from 'react-feather';
+import productCategories from '../../mocks/en-us/product-categories.json';
 import useRoute from '../../hooks/useRoute';
 import MenuButton from '../MenuButton';
+import SideBar from '../SideBar';
 
 const StyledHeader = styled.header`
-  position: relative;
-  z-index: 1;
+  position: fixed;
+  width: 100%;
   background: whitesmoke;
+  z-index: 2;
   box-shadow: 4px 3px 21px -6px rgba(0, 0, 0, 0.32);
 `;
 
@@ -40,21 +43,24 @@ const Button = styled.button`
 
 const Header = () => {
   const [, setRoute] = useRoute();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <StyledHeader>
-      <HeaderContainer>
-        <nav>
-          <MenuButton />
-        </nav>
-        <Title onClick={() => setRoute('/')}>ASBESTO</Title>
-        <Button>
-          <SearchIcon size={25} />
-        </Button>
-        <Button>
-          <ShoppingIcon size={24} />
-        </Button>
-      </HeaderContainer>
-    </StyledHeader>
+    <>
+      <StyledHeader>
+        <HeaderContainer>
+          <MenuButton onClick={() => setIsMenuOpen(value => !value)} />
+          <Title onClick={() => setRoute('/')}>ASBESTO</Title>
+          <Button>
+            <SearchIcon size={25} />
+          </Button>
+          <Button>
+            <ShoppingIcon size={24} />
+          </Button>
+        </HeaderContainer>
+      </StyledHeader>
+      <SideBar categories={productCategories.results} open={isMenuOpen} />
+    </>
   );
 };
 

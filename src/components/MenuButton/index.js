@@ -34,11 +34,14 @@ const Bar = styled.span`
   transition: 0.3s ease;
 `;
 
-const MenuButton = () => {
+const MenuButton = ({ onClick = () => {} }) => {
   const [isActive, setIsActive] = useState(false);
   const barAmount = new Array(3).fill();
 
-  const handleOnClick = () => setIsActive(value => !value);
+  const handleOnClick = () => {
+    setIsActive(value => !value);
+    onClick();
+  };
 
   return (
     <Menu isActive={isActive} onClick={handleOnClick}>
