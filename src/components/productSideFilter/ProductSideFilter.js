@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductSideFilter.scss";
 import categories from "../../data/categories.json";
 import products from "../../data/products.json";
 import ProductGrid from "../productGrid/ProductGrid";
+import Loading from "../loading/Loading";
 const ProductSideFilter = () => {
   const [productsToShow, setproductsToShow] = useState(products.results);
   const [filters, setFilters] = useState([]);
+  const [isLoading, setisLoading] = useState(true);
+
+  useEffect(() => {
+     setTimeout(() => {
+      setisLoading(false);
+    }, 3000);
+  }, []);
   let addFilter = (filter) => {
     filters.push(filter);
     setFilters(filters);
@@ -33,7 +41,8 @@ const ProductSideFilter = () => {
 
     setproductsToShow(productsFiltered);
   };
-  return (
+
+  const content = (
     <div>
       <div className="sidebar">
         <ul className="ks-cboxtags">
@@ -66,6 +75,7 @@ const ProductSideFilter = () => {
       </div>
     </div>
   );
+  return <div>{isLoading ? <Loading></Loading> : content}</div>;
 };
 
 export default ProductSideFilter;
