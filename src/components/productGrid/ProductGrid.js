@@ -3,7 +3,6 @@ import './ProductGrid.scss'
 const ProductGrid = (props) => {
     const products = props.products;
     const categories = props.categories;
-    console.log(props.limit!==undefined)
     const limit = props.limit !== undefined ? props.limit : products.length;
 
     let prodsToShow = (limit) =>{
