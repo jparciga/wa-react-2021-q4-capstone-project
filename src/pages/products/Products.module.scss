@@ -1,0 +1,46 @@
+.productList {
+    margin: 95px 0 1rem 0;
+    padding: 2rem;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    &Content {
+        position: relative;
+        padding: 2rem;
+        border: 1px solid #e9eef4;
+        text-align: center;
+        border-radius: 10px;
+        background-color: #FFF;
+        left: 20px;
+        width: calc(100% - 250px);
+        @media (max-width: 720px) {
+            width: 100%;
+            left: 0;
+            padding: 1rem;
+            background-color: transparent;
+            border: none;
+            margin: 145px 0 0 0;
+        }
+        h1 {
+            font-weight: 400;
+            color: #c0810b;
+        }
+        &Cards {
+            display: grid;
+            margin: 45px 0 95px 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+    }
+    &Pagination {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translate(-50%);
+    }
+    @media (max-width:720px) {
+        margin: 149px 0 0 0;
+        padding: 0;
+    }
+}

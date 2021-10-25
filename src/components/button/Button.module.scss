@@ -1,0 +1,14 @@
+.btn {
+    padding: 16px 40px;
+    border: none;
+    outline: none;
+    background: linear-gradient(22deg, #001 90%, #002);
+    color: #FFAC12;
+    font-family: inherit;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: calc(8px + 1vmin);
+    &:hover {
+        filter: brightness(120%);
+    }
+}

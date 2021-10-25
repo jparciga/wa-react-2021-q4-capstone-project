@@ -1,0 +1,27 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &Btn {
+        margin: 0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f5f7fa;
+        border: 1px solid #ced3d9;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        font-size: 20px;
+        color: #ced3d9;
+        transition: 0.2s;
+        &:hover {
+            background-color: #001;
+            color: #FFAC12;
+            border: none;
+        }
+    }
+    span {
+        color: #94909E;
+    }
+}

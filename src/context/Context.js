@@ -8,6 +8,9 @@ const ContextProvider = ({ children }) => {
   const [slider, setSlider] = useState(banners);
   const [carousel, setCarousel] = useState(categories);
   const [products, setProducts] = useState(product);
+  const [showPage,setShowPage] = useState('home');
+  const [writeFilter,setWriteFilter] = useState('');
+ 
 
   const data = {
     slider,
@@ -16,6 +19,11 @@ const ContextProvider = ({ children }) => {
     setSlider,
     setCarousel,
     setProducts,
+    showPage,
+    setShowPage,
+    writeFilter,
+    setWriteFilter
+   
   };
 
   return <Context.Provider value={data}>{children}</Context.Provider>;
