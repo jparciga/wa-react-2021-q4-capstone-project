@@ -1,12 +1,13 @@
 .homeCategoriesCard {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.8rem;
     img {
         object-fit: cover;
+        border-radius: 10px;
     }
     h1 {
-        font-weight: 500;
-        color: #004;
+        font-weight: 200;
+        color: #001;
     }
 }

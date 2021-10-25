@@ -2,7 +2,7 @@
     min-height: 90px;
     background-color: #001;
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     left: 0;
     top: 0;
     width: 100%;
@@ -12,13 +12,15 @@
     justify-content: space-between;
     flex-wrap: wrap;
     @media (max-width: 720px) {
-        height: 120px;
-        padding: 0 1rem;
+        height: 150px;
+        padding: 2rem 1rem;
     }
     &Logo {
+        cursor: pointer;
         @media (max-width: 720px) {
             width: 100%;
             text-align: center;
+            margin-bottom: 15px;
         }
     }
     ul {

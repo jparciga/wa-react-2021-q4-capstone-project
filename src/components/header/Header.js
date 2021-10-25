@@ -2,11 +2,14 @@ import classnames from "classnames";
 import styles from "./Header.module.scss";
 import logo from "./img/logo.svg";
 import { MdShoppingCart, MdOutlineSearch } from "react-icons/md";
+import { useContext } from "react";
+import Context from "../../context/Context";
 
 const Header = () => {
+  const {setShowPage} = useContext(Context);
   return (
     <header className={classnames(styles.header)}>
-      <div className={classnames(styles.headerLogo)}>
+      <div onClick={_=>setShowPage('home')} className={classnames(styles.headerLogo)}>
         <img src={logo} alt="logo" />
       </div>
 
