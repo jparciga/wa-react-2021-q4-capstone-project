@@ -1,34 +1,37 @@
 import React from 'react';
 
-import Main from './containers/Main';
 import Section from './containers/Section';
 import Slider from './components/Slider';
-import Grid from './components/Grid';
-import Product from './components/Product';
+import Grid from 'components/Grid';
+import Product from 'components/Product';
+import Button from 'components/Button';
 
-import BannersMock from './mocks/en-us/featured-banners.json';
-import CategoriesMock from './mocks/en-us/product-categories.json';
-import ProductsMock from './mocks/en-us/featured-products.json';
+import BannersMock from 'mocks/en-us/featured-banners.json';
+import ProductCategoriesMock from 'mocks/en-us/product-categories.json';
+import FeaturedProductsMock from 'mocks/en-us/featured-products.json';
 
-const Home = () => (
-    <Main>
+const Home = ({ setPage }) => (
+    <div>
         <Section>
             <Slider data={BannersMock} />
         </Section>
         <Section>
             <Grid
-                data={CategoriesToGridList(CategoriesMock)}
+                data={CategoriesToGridList(ProductCategoriesMock)}
                 columns={5}
             />
         </Section>
         <Section>
             <Grid
-                data={ProductsToGridList(ProductsMock)}
+                data={ProductsToGridList(FeaturedProductsMock)}
                 columns={6}
                 CustomComponent={Product}
             />
         </Section>
-    </Main>
+        <Section>
+            <Button onClick={() => setPage('products')}>View all products</Button>
+        </Section>
+    </div>
 )
 
 const CategoriesToGridList = (data) => data.results.map(item => ({
@@ -39,7 +42,7 @@ const CategoriesToGridList = (data) => data.results.map(item => ({
 const ProductsToGridList = (data) => data.results.map(item => ({
     url: item.data.mainimage.url,
     title: item.data.name,
-    category : item.data.category.slug,
+    category: item.data.category.slug,
     price: item.data.price
 }))
 

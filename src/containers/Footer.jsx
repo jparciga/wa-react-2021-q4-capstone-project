@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import colors from '../constants/colors';
 
 const Footer = styled.div`
-    position: fixed;
-    bottom : 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 10rem;
     width: 100%;
     background-color: ${colors.MINERAL};

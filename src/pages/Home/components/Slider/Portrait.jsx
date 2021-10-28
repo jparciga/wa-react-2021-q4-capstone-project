@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const Slider = ({ href, title, isActive }) => (
+const Portrait = ({ href, title, isActive }) => (
     <Container isActive={isActive}>
         <ImageTitle>{title}</ImageTitle>
         <Img src={href} title={title} />
@@ -30,4 +30,4 @@ const Img = styled.img`
     border-radius: 2rem;
 `
 
-export default Slider
+export default Portrait
