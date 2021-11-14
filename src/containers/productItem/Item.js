@@ -3,10 +3,10 @@ function Item(props){
     const {img} = props;
     return(
         <div class="card">
-        <div class="title"><h1>{props.title}</h1></div>
+        <div class="title"><h1 class="title">{props.title}</h1></div>
            <img src={img}  />
 
-      <div class="container"><p >{props.desc}</p></div>
+      <div class="container"><h3>{props.desc}</h3></div>
     </div>
     )
 }
