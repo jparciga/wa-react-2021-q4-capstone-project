@@ -1,12 +1,19 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
+import Banner from './containers/Banner/Banner.js';
+import List from './containers/productList/ProductList';
 
 function App() {
   const { data, isLoading } = useFeaturedBanners();
   console.log(data, isLoading);
-
-  return (
+  return(
+    <div>
+    <Banner></Banner>
+    <List></List>
+    </div>
+  );
+  /*return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -23,7 +30,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  );*/
 }
 
 export default App;
