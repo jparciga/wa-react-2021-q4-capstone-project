@@ -1,12 +1,12 @@
 import "./Item.css"
 function Item(props){
+    const {img} = props;
     return(
         <div class="card">
         <div><h1>{props.title}</h1></div>
-        <p>{props.img}</p>
-           <img src={props.img} />
+           <img src={img}  />
 
-      <div>{props.desc}</div>
+      <div class="container">{props.desc}</div>
     </div>
     )
 }
