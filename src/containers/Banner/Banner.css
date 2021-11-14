@@ -9,6 +9,7 @@
 
 .header img {
     float: left;
+    padding-left: 25%;
     width: 100px;
     height: 100px;
     background: transparent;
