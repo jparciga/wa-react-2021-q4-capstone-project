@@ -1,0 +1,21 @@
+
+
+.header div{
+    text-align: center;
+    height: 100px;
+    width: 100%;
+    background-color: cornflowerblue;
+}
+
+.header img {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+  }
+  
+  .header h1 {
+    position: relative;
+    top: 30px;
+    left: 0px;
+  }
