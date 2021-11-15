@@ -12,8 +12,6 @@ function Banner(props){
   const banner_img=banner.data.main_image.url;
   const banner_img_alt=banner.data.main_image.alt;
 
-
-   
     return(
     <div class="header">
         <div>

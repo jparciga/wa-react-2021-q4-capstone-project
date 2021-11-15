@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Banners from "./../../mocks/en-us/featured-banners.json";
 import Banner from './Banner';
+var timer=false;
 
 const BannerSlider = ( ) => {
   const [current, setCurrent] = useState(0);
@@ -19,7 +20,9 @@ const BannerSlider = ( ) => {
   }
   setTimeout(() => {
     nextSlide();
-  }, 7000);
+    timer=true;
+  }, 5000);
+ 
   return (
     <section className='slider'>
     <Banner index={current}></Banner>
@@ -29,6 +32,7 @@ const BannerSlider = ( ) => {
       </div>
     </section>
   );
+  
 };
 
 export default BannerSlider;
