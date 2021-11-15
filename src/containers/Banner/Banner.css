@@ -34,3 +34,7 @@
     height:10%;
     top: 40px;
   }
+  .arrows{
+
+    position: fixed;
+  }

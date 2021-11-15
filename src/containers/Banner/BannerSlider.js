@@ -23,7 +23,7 @@ const BannerSlider = ( ) => {
   return (
     <section className='slider'>
     <Banner index={current}></Banner>
-    <div>
+    <div class="arrows">
       <button className='left-arrow' onClick={prevSlide} >prev</button>
       <button className='right-arrow' onClick={nextSlide} >next</button>
       </div>
