@@ -1,40 +1,25 @@
 
 
-.header{
-    position: fixed;
-    text-align: left;
-    height: 100px;
-    width: 100%;
-    background-color: cornflowerblue;
+
+.bannerlogo{
+    width: fit-content;
 }
 
-.logo {
-    float: left;
-    padding-left: 20%;
-    padding-top: 20px;
-    width: 100px;
-    height: 80%;
-    background: transparent;
-  }
-  
-  .header h1 {
-    padding-left: 40%;
-    position: fixed;
-    left: 0px;
-  }
+.bannerlogoimg{
+    height: 100px;
+}
 
-  .search{
-      position: fixed;
-      padding-left: 90%;
-      padding-top: 2%;
-  }
+.title{
+    width: 30%;
+}
 
-  .cart{
-    position:fixed;
-    height:10%;
-    top: 40px;
-  }
-  .arrows{
+.cart{
+    width:10%
+    
+}
+.cartimg{
+    width: 20%;
+}
 
-    position: fixed;
-  }
+
+

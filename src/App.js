@@ -1,9 +1,9 @@
 //import logo from './logo.svg';
 import './App.css';
 import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
-import Banner from './containers/Banner/Banner.js';
 import List from './containers/productList/ProductList';
 import BannerSlider from './containers/Banner/BannerSlider';
+import CategoriesSlider from './containers/CategoriesSlider/CategoriesSlider';
 
 function App() {
   const { data, isLoading } = useFeaturedBanners();
@@ -12,6 +12,7 @@ function App() {
   return(
     <div>
     <BannerSlider ></BannerSlider>
+    <CategoriesSlider/>
     <List></List>
     </div>
   );

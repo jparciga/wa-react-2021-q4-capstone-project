@@ -25,24 +25,16 @@ const BannerSlider = ( ) => {
  
   return (
     <section className='slider'>
-    <Banner index={current}></Banner>
-    <div class="arrows">
-      <button className='left-arrow' onClick={prevSlide} >prev</button>
-      <button className='right-arrow' onClick={nextSlide} >next</button>
-      </div>
+      <table  width="100%">
+        <tr  width="100%">
+          <td width="10%"><button className='left-arrow' onClick={prevSlide} >next</button></td>
+          <td width="80%"><Banner index={current}></Banner></td>
+          <td width="10%"><button className='right-arrow' onClick={nextSlide} >next</button></td>
+          </tr>
+      </table>
     </section>
   );
   
 };
 
 export default BannerSlider;
-/*   return (
-          <div
-            className={index === current ? 'slide active' : 'slide'}
-            key={index}
-          >
-            {index === current && (
-              <img src={slide.image} alt='travel image' className='image' />
-            )}
-          </div>
-        );*/
