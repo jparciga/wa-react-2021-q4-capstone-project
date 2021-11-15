@@ -13,7 +13,7 @@
      background-color: burlywood;
   }
 
-  img {
+  .itemimg {
       padding-left: 10%;
     width: 80%; /* or any custom size */
     height: 300px; 

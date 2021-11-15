@@ -14,12 +14,12 @@ function Banner(props){
 
     return(
     <div>
-       <table>
+       <table class="bannertable">
            <tr class="banner">
-            <td class="bannerlogo"><img src={banner_img} alt={banner_img_alt} class="bannerlogoimg"/></td>
-            <td class="title"><h1> {banner_title} </h1></td>
+            <td class="bannerlogo"><img src={banner_img} alt={banner_img_alt} class="bannerlogoimg"></img></td>
+            <td class="bannertitle"><h1> {banner_title} </h1></td>
             <td class="cart"><img src={shoppingCart} class="cartimg"></img></td>
-            <td class="searcn\h">Search: <input></input></td>
+            <td class="search">Search: <input></input></td>
             </tr>
         </table>
     </div>

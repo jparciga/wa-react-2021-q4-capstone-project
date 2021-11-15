@@ -27,9 +27,7 @@ const BannerSlider = ( ) => {
     <section className='slider'>
       <table  width="100%">
         <tr  width="100%">
-          <td width="10%"><button className='left-arrow' onClick={prevSlide} >next</button></td>
           <td width="80%"><Banner index={current}></Banner></td>
-          <td width="10%"><button className='right-arrow' onClick={nextSlide} >next</button></td>
           </tr>
       </table>
     </section>
@@ -38,3 +36,6 @@ const BannerSlider = ( ) => {
 };
 
 export default BannerSlider;
+
+//<td width="10%"><button className='left-arrow' onClick={prevSlide} >next</button></td>
+//<td width="10%"><button className='right-arrow' onClick={nextSlide} >next</button></td>

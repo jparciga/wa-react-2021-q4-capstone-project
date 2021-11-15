@@ -26,7 +26,7 @@ const CategoriesSlider = ( ) => {
  
   return (
     <section className='slider'>
-      <table>
+      <table class="categoryslidertable">
         <tr><th class="title" colSpan="5">Categories</th></tr>
         <tr>
           <td class="button"><button className='left-arrow' onClick={prevSlide} >prev category</button></td>
