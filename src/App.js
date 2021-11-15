@@ -3,13 +3,15 @@ import './App.css';
 import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
 import Banner from './containers/Banner/Banner.js';
 import List from './containers/productList/ProductList';
+import BannerSlider from './containers/Banner/BannerSlider';
 
 function App() {
   const { data, isLoading } = useFeaturedBanners();
   console.log(data, isLoading);
+
   return(
     <div>
-    <Banner></Banner>
+    <BannerSlider ></BannerSlider>
     <List></List>
     </div>
   );
