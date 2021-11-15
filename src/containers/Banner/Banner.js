@@ -1,7 +1,7 @@
 //import logo from './../../imgs/mugiwara.jpg';
  import shoppingCart from './../../imgs/shoppingCart.png';
 import "./Banner.css"
-import Banners from "./../../mocks/featured-banners.json";
+import Banners from "./../../mocks/en-us/featured-banners.json";
 
 
 function Banner(props){ 

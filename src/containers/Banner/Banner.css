@@ -1,6 +1,7 @@
 
 
 .header{
+    position: fixed;
     text-align: left;
     height: 100px;
     width: 100%;

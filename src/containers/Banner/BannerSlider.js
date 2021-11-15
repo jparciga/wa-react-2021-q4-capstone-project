@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Banners from "../../mocks/featured-banners.json";
+import Banners from "./../../mocks/en-us/featured-banners.json";
 import Banner from './Banner';
 
 const BannerSlider = ( ) => {
@@ -23,8 +23,10 @@ const BannerSlider = ( ) => {
   return (
     <section className='slider'>
     <Banner index={current}></Banner>
+    <div>
       <button className='left-arrow' onClick={prevSlide} >prev</button>
       <button className='right-arrow' onClick={nextSlide} >next</button>
+      </div>
     </section>
   );
 };
