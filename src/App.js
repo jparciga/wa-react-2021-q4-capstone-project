@@ -4,6 +4,7 @@ import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
 import List from './containers/productList/ProductList';
 import BannerSlider from './containers/Banner/BannerSlider';
 import CategoriesSlider from './containers/CategoriesSlider/CategoriesSlider';
+import Footer from './containers/Banner/Footer';
 
 function App() {
   const { data, isLoading } = useFeaturedBanners();
@@ -11,9 +12,17 @@ function App() {
 
   return(
     <div>
+      <table>
+        <tr>
+        <td>
     <BannerSlider ></BannerSlider>
     <CategoriesSlider/>
-    <List></List>
+    <List></List></td>
+    </tr><tr>
+    <td> <Footer text="Ecommerce created during Wizeline’s Academy React Bootcamp"></Footer></td>
+    </tr>
+    </table>
+   
     </div>
   );
   /*return (
