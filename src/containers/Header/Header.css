@@ -1,0 +1,36 @@
+
+
+.headerTable{
+    background-color:darkcyan;
+    width: 100%;
+}
+
+.headerLogo{
+  height: 100%;
+}
+
+.header{
+    width: 100%;
+}
+
+.headerLogoImg{
+    height: 50px;
+}
+
+.headerTitle{
+    width: 50%;
+}
+
+.cart{
+    width:10%
+    
+}
+.cartImg{
+    width: 20%;
+}
+
+.search{
+    width: 15%;
+    text-align: right;
+}
+

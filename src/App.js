@@ -1,10 +1,13 @@
 //import logo from './logo.svg';
+import logo from './imgs/mugiwara.jpg';
 import './App.css';
 import { useFeaturedBanners } from './utils/hooks/useFeaturedBanners';
 import List from './containers/productList/ProductList';
 import BannerSlider from './containers/Banner/BannerSlider';
 import CategoriesSlider from './containers/CategoriesSlider/CategoriesSlider';
 import Footer from './containers/Banner/Footer';
+import Banners from "./mocks/en-us/featured-banners.json";
+import Header from './containers/Header/Header';
 
 function App() {
   const { data, isLoading } = useFeaturedBanners();
@@ -15,7 +18,10 @@ function App() {
       <table>
         <tr>
         <td>
-    <BannerSlider ></BannerSlider>
+      <Header title="MugiStore!" img_alt="MugiStore!"/></td>
+    </tr><tr>
+    <td>
+    <BannerSlider banners={Banners}></BannerSlider>
     <CategoriesSlider/>
     <List></List></td>
     </tr><tr>
@@ -42,6 +48,8 @@ function App() {
         </a>
       </header>
     </div>
+
+
   );*/
 }
 
