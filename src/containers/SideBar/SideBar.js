@@ -16,7 +16,7 @@ function SideBar(props) {
           return (
             <tr>
               <td>
-                <div class="SideBarItem">
+                <div class="SideBarItemSelected">
                   <h1>{element.data.name}</h1>
                 </div>
               </td>

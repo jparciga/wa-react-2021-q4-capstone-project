@@ -12,7 +12,7 @@ function ProductListPage(props) {
     <div class="float-container">
       <table>
         <tr>
-          <td width="80%">
+          <td width="75%">
             {items.map((element, i) => {
               maxItems = i;
               return (
