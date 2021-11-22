@@ -18,7 +18,7 @@ function List(props){
     <div class="float-container">
         <table><tr><td>
     {items.map((element, i) => { 
-            //if(i<3)
+            if(i<3)
            return (
                <div class="float-child">
                <Item title={element.data.name} img={element.data.mainimage.url} desc={element.data.short_description} price={element.data.price} category={element.data.category.slug} width="100%" />
