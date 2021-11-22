@@ -26,9 +26,7 @@ function List(props){
                ) 
         })}
          </td></tr>
-         <tr><td align="center">
-    <button class="viewAllProductsButton">View all products</button>
-    </td></tr>
+         
     </table>
     </div>
 )
