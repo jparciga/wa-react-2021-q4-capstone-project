@@ -2,17 +2,21 @@ import { div } from "prelude-ls";
 import Item from "../productItem/Item";
 import "./ProductListPage.css";
 import Products from "./../../mocks/en-us/products.json";
+import SideBar from "../SideBar/SideBar";
 
 function ProductListPage(props) {
   let items = Products.results;
-
+  let maxItems=0;
   return (
     <div class="float-container">
+
+
+
       <table>
         <tr>
-          <td>
+          <td width="80%">
             {items.map((element, i) => {
-     
+              maxItems=i;
                 return (
                   <div class="float-child">
                     <Item
@@ -27,7 +31,9 @@ function ProductListPage(props) {
                 );
             })}
           </td>
-        </tr>
+        <td class="CategoriesSideBar" rowSpan={maxItems} >
+          <SideBar></SideBar>
+          </td></tr>
       </table>
     </div>
   );
