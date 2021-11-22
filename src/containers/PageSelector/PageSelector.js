@@ -5,7 +5,7 @@ import List from "../productList/ProductList";
 const PageSelector = (props) => {
   switch (props.page) {
     case "PriductListPage":
-      return <ProductListPage></ProductListPage>;
+      return <ProductListPage Categories={props.Categories}></ProductListPage>;
     case "Home":
       return <List></List>;
     default:

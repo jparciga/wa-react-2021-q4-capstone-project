@@ -1,7 +1,6 @@
 import "./SideBar.css";
-import Categories from "./../../mocks/en-us/product-categories.json";
 
-function SideBar(props) {
+function SideBar({ Categories, event }) {
   return (
     <div class="float-container">
       <table>
@@ -12,12 +11,17 @@ function SideBar(props) {
             </div>
           </td>
         </tr>
-        {Categories.results.map((element, i) => {
+        {Categories.map((element, i) => {
           return (
             <tr>
               <td>
-                <div class="SideBarItemSelected">
-                  <h1>{element.data.name}</h1>
+                <div
+                  class={
+                    element.selected ? "SideBarItemSelected" : "SideBarItem"
+                  }
+                  onClick={()=>{event(element.id)}}
+                >
+                  <h1>{element.name}</h1>
                 </div>
               </td>
             </tr>

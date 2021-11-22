@@ -11,7 +11,7 @@ import Header from "./containers/Header/Header";
 //import ProductListPage from './containers/ProductListPage/ProductListPage';
 import PageSelector from "./containers/PageSelector/PageSelector";
 import React, { useState, useEffect } from "react";
-
+import Categories from "./mocks/en-us/product-categories.json";
 let pages = ["Home", "PriductListPage"];
 
 
@@ -20,8 +20,23 @@ return(<div><BannerSlider banners={Banners}></BannerSlider>
   <CategoriesSlider /></div>)
 }
 
+var Cats=[];
+function getCategories(){
+  Cats=[];
+  for(let i in Categories.results){
+    let cat = Categories.results[i];
+
+    Cats.push({
+      name: cat.data.name,
+      id: cat.id,
+      selected: false
+    });
+    console.log(Cats[i].name,Cats[i]);
+  }
+}
 
 function App() {
+  getCategories();
   const { data, isLoading } = useFeaturedBanners();
   console.log(data, isLoading);
   let [pageIndex, setPageIndex] = useState(0);
@@ -50,7 +65,7 @@ function App() {
             { pageIndex===0 &&
             < Home />
             }
-            <PageSelector page={pages[pageIndex]}></PageSelector>
+            <PageSelector page={pages[pageIndex]} Categories={Cats}></PageSelector>
           </td>
         </tr>
         <tr>

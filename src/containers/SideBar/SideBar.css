@@ -3,7 +3,7 @@
 }
 
 .SideBarItem{
-    background-color: #4CAF50; /* Green */
+    background-color: lightgray; 
     border: none;
     color: white;
     padding: 15px 32px;
@@ -15,12 +15,12 @@
 }
 
 .SideBarItem:hover {
-    background-color: lightgreen; /* Green */
+    background-color: lightgreen; 
     color: black;
   }
 
   .SideBarItemSelected{
-    background-color:cornflowerblue; /* Green */
+    background-color:cornflowerblue; 
     border: none;
     color: black;
     padding: 15px 32px;
@@ -30,11 +30,15 @@
     font-size: 16px;
     width: 80%;
 }
+.SideBarItemSelected:hover {
+    background-color: lightgreen;
+    color: black;
+  }
 
 .CategoriesSideBarTitle{
-    background-color: lightgray; /* Green */
+    background-color:Black; 
     border: none;
-    color: black;
+    color: white ;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
