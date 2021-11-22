@@ -16,6 +16,7 @@ function List(props){
     return(
         
     <div class="float-container">
+        <table><tr><td>
     {items.map((element, i) => { 
             //if(i<3)
            return (
@@ -24,7 +25,11 @@ function List(props){
             </div>
                ) 
         })}
-
+         </td></tr>
+         <tr><td align="center">
+    <button class="viewAllProductsButton">View all products</button>
+    </td></tr>
+    </table>
     </div>
 )
 }
