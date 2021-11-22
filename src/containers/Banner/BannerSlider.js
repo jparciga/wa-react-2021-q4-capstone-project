@@ -27,7 +27,7 @@ const BannerSlider = ( {banners}) => {
     <section className='slider'>
       <table  width="100%">
         <tr  width="100%">
-          <td width="80%"><Banner title={banner.data.title} banner_img={banner.data.main_image.url} img_alt={banner.data.main_image.alt} ></Banner></td>
+          <td width="80%"><Banner banner_title={banner.data.title} banner_img={banner.data.main_image.url} img_alt={banner.data.main_image.alt} ></Banner></td>
           </tr>
       </table>
     </section>
