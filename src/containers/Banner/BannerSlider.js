@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 //import Banners from "./../../mocks/en-us/featured-banners.json";
-import Banner from './Banner';
-var timer=false;
+import Banner from "./Banner";
+var timer = false;
 
-const BannerSlider = ( {banners}) => {
+const BannerSlider = ({ banners }) => {
   const [current, setCurrent] = useState(0);
   const length = banners.results.length;
 
@@ -20,23 +20,24 @@ const BannerSlider = ( {banners}) => {
   }
   setTimeout(() => {
     nextSlide();
-    timer=true;
+    timer = true;
   }, 5000);
-  let banner=banners.results[current];
+  let banner = banners.results[current];
   return (
-    <section className='slider'>
-      <table  width="100%">
-        <tr  width="100%">
-          <td width="80%"><Banner banner_title={banner.data.title} banner_img={banner.data.main_image.url} img_alt={banner.data.main_image.alt} ></Banner></td>
-          </tr>
+    <section className="slider">
+      <table width="100%">
+        <tr width="100%">
+          <td width="80%">
+            <Banner
+              banner_title={banner.data.title}
+              banner_img={banner.data.main_image.url}
+              img_alt={banner.data.main_image.alt}
+            ></Banner>
+          </td>
+        </tr>
       </table>
     </section>
   );
-  
 };
 
 export default BannerSlider;
-//<td width="80%"><Banner index={current}></Banner></td>
-
-//<td width="10%"><button className='left-arrow' onClick={prevSlide} >next</button></td>
-//<td width="10%"><button className='right-arrow' onClick={nextSlide} >next</button></td>
