@@ -2,19 +2,13 @@ import "./SideBar.css";
 
 function SideBar({ Categories, event }) {
   return (
-    <div class="float-container">
-      <table>
-        <tr>
-          <td>
-            <div class="CategoriesSideBarTitle">
+    <div style = {{display:'flex', flexDirection:'column'}}>
+       <div class="CategoriesSideBarTitle">
               <h1>Categories</h1>
             </div>
-          </td>
-        </tr>
-        {Categories.map((element, i) => {
+
+            {Categories.map((element, i) => {
           return (
-            <tr>
-              <td>
                 <div
                   class={
                     element.selected ? "SideBarItemSelected" : "SideBarItem"
@@ -23,12 +17,9 @@ function SideBar({ Categories, event }) {
                 >
                   <h1>{element.name}</h1>
                 </div>
-              </td>
-            </tr>
           );
         })}
-      </table>
-    </div>
+      </div>
   );
 }
 

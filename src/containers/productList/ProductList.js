@@ -1,17 +1,14 @@
-import { div } from "prelude-ls";
+
 import Item from "../productItem/Item";
 import "./ProductList.css";
 import Products from "./../../mocks/en-us/products.json";
-//{"title":"","img":"","desc":""}
-function List(props) {
+
+function List() {
   let items = Products.results;
 
   return (
-    <div class="float-container">
-      <table>
-        <tr>
-          <td>
-            {items.map((element, i) => {
+    <div style = {{display:'flex', flexDirection:'row'}}>
+     {items.map((element, i) => {
               if (i < 3)
                 return (
                   <div class="float-child">
@@ -21,15 +18,14 @@ function List(props) {
                       desc={element.data.short_description}
                       price={element.data.price}
                       category={element.data.category.slug}
-                      width="100%"
                     />
                   </div>
                 );
+                else{
+                  return "";
+                }
             })}
-          </td>
-        </tr>
-      </table>
-    </div>
+  </div>
   );
 }
 

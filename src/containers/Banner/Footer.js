@@ -1,5 +1,3 @@
-//import logo from './../../imgs/mugiwara.jpg';
-import shoppingCart from './../../imgs/shoppingCart.png';
 import "./Banner.css"
 
 

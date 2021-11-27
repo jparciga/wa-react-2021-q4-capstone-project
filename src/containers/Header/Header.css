@@ -33,4 +33,7 @@
     width: 15%;
     text-align: right;
 }
+div{
+    justify-content: center;
+}
 
