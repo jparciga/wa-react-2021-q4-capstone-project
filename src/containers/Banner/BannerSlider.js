@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import Banner from "./Banner";
+
 var timer = false;
 
 const BannerSlider = ({ banners }) => {
   const [current, setCurrent] = useState(0);
+  const {isLoading} = banners;
+
+  if(isLoading){
+    return(<h1>Loading...</h1>);
+  }
+   banners=banners.data;
+
   const length = banners.results.length;
 
   const nextSlide = () => {

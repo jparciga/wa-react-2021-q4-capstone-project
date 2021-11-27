@@ -1,17 +1,15 @@
-//import logo from './../../imgs/mugiwara.jpg';
- import shoppingCart from './../../imgs/shoppingCart.png';
+
 import "./Banner.css"
-//import Banners from "./../../mocks/en-us/featured-banners.json";
 
 
-function Banner(props){ 
+function Banner({banner_img,banner_img_alt,banner_title}){ 
 
     return(
     <div>
        <table class="bannertable">
            <tr class="banner">
-            <td class="bannerlogo"><img src={props.banner_img} alt={props.banner_img_alt} class="bannerlogoimg"></img></td>
-            <td class="bannertitle"><h1> {props.banner_title} </h1></td>
+            <td class="bannerlogo"><img src={banner_img} alt={banner_img_alt} class="bannerlogoimg"></img></td>
+            <td class="bannertitle"><h1> {banner_title} </h1></td>
             </tr>
         </table>
     </div>
