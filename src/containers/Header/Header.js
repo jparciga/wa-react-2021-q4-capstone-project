@@ -1,22 +1,17 @@
 import logo from "./../../imgs/mugiwara.jpg";
 import shoppingCart from "./../../imgs/shoppingCart.png";
 import "./Header.css";
+import { NavLink } from "react-router-dom";
 
-function Header({ logo_event, img_alt, title }) {
-  //const title="Mugistore!";
+function Header({ img_alt, title }) {
   const img = logo;
-  //const img_alt="Mugistore!";
 
   return (
     <div style={{ display: "flex", flexDirection: "row" }} class="headerTable">
       <div class="headerLogo">
-        <button
-          onClick={() => {
-            logo_event(0);
-          }}
-        >
+        <NavLink to="/home">
           <img src={img} alt={img_alt} class="headerLogoImg"></img>
-        </button>
+        </NavLink>
       </div>
       <div class="headerTitle">
         <h1> {title} </h1>
@@ -32,28 +27,3 @@ function Header({ logo_event, img_alt, title }) {
 }
 
 export default Header;
-
-/*<div>
-      <table class="headerTable">
-        <tr class="header">
-          <td class="headerLogo">
-            <button
-              onClick={() => {
-                logo_event(0);
-              }}
-            >
-              <img src={img} alt={img_alt} class="headerLogoImg"></img>
-            </button>
-          </td>
-          <td class="headerTitle">
-            <h1> {title} </h1>
-          </td>
-          <td class="cart">
-            <img src={shoppingCart} class="cartImg"></img>
-          </td>
-          <td class="search">
-            Search: <input></input>
-          </td>
-        </tr>
-      </table>
-    </div>*/

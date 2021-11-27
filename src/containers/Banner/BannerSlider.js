@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-//import Banners from "./../../mocks/en-us/featured-banners.json";
 import Banner from "./Banner";
 var timer = false;
 
