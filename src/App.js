@@ -15,6 +15,7 @@ import ProductPage from "./containers/ProductPage/ProductPage";
 
 
 function App() {
+  let itemsPerPage=16;
   //console.log(useFeaturedProducts());
   //return (<div>kek</div>)
   return (
@@ -28,9 +29,9 @@ function App() {
 
           <Route
             path="/ProductList"
-            element={<ProductListPage Categories={getCategories()} Products = {useFeaturedProducts()}/>}
+            element={<ProductListPage Categories={getCategories()} Products = {useFeaturedProducts()} itemsPerPage={itemsPerPage}/>}
           >
-             <Route path=":id" element={<ProductListPage Categories={getCategories()} Products = {useFeaturedProducts()}/>} />
+             <Route path=":id" element={<ProductListPage Categories={getCategories()} Products = {useFeaturedProducts()} itemsPerPage={itemsPerPage}/>} />
           </Route>
 
           <Route

@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 
 
 
-function ProductListPage({ Categories,Products }) {
+function ProductListPage({ Categories,Products,itemsPerPage=16 }) {
   let items = [];
   let maxItems = 0;
   let arrCatSelecteds = [];
@@ -82,7 +82,8 @@ function ProductListPage({ Categories,Products }) {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div>
           {ItemsStates.map((element, i) => {
-            maxItems = i;
+            if(i<itemsPerPage)maxItems = i;
+            if(i>itemsPerPage)return null;
             return (
               <div class="float-child">
                 <Item
@@ -91,6 +92,7 @@ function ProductListPage({ Categories,Products }) {
                   desc={element.data.short_description}
                   price={element.data.price}
                   category={element.data.category.slug}
+                  id={element.id}
                 />
               </div>
             );

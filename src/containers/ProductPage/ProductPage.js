@@ -19,14 +19,14 @@ function ProductPage(products) {
 
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
-      <div class="card">
-        <div class="title">
-          <h1 class="title">
+      <div class="productPageCard">
+        <div class="productPagetitle">
+          <h1 class="productPagetitle">
             [{category}]{title}
           </h1>
           <h1> $ {price}</h1>
         </div>
-        <img class="itemimg" src={img} />
+        <img class="productPageitemimg" src={img} />
 
         <div style={{ display: "flex", flexDirection: "row" }}>
           <h2>{desc}</h2>
