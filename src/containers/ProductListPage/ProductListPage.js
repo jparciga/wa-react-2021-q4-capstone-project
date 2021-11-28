@@ -6,6 +6,7 @@ import SideBar from "../SideBar/SideBar";
 import PaginationBar from "../PaginationBar/PaginationBar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Button, { EventButton } from "../Button/Button";
 
 
 
@@ -35,7 +36,6 @@ function ProductListPage({ Categories,Products,itemsPerPage=16 }) {
         selected: cat.selected,
       });
     }
-    console.log(arr);
     updateCategoriesStates(arr);
 
     //filtrar
@@ -53,8 +53,22 @@ function ProductListPage({ Categories,Products,itemsPerPage=16 }) {
     }
   };
 
-  useEffect(()=>{
+  const borrarFiltros=()=>{
+    let arr = [];
+    for (let i in CategoriesStates) {
+      let cat = CategoriesStates[i];
 
+      arr.push({
+        name: cat.name,
+        id: cat.id,
+        selected: false,
+      });
+    }
+    updateCategoriesStates(arr);
+    updateItemsStates(items);
+  };
+
+  useEffect(()=>{
 
   if (params.id !== null) {
     for (let i in CategoriesStates) {
@@ -103,6 +117,8 @@ function ProductListPage({ Categories,Products,itemsPerPage=16 }) {
             Categories={CategoriesStates}
             event={changeCategoryState}
           ></SideBar>
+          <br/>
+          <button class="genericButton" onClick={borrarFiltros}>Clear filters</button>
         </div>
       </div>
 
