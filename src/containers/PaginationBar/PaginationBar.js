@@ -1,16 +1,19 @@
 
 import './PaginationBar.css'
 
-const PaginationBar = () => {
+const PaginationBar = ({pages}) => {
+  let arrayPages=[];
+  for(let i=0;i<pages;i++){
+    arrayPages.push(1);
+  }
   return (
 <div class="pagination">
   <a href="#" class="active">&laquo;</a>
-  <a href="#">1</a>
-  <a href="#">2</a>
-  <a href="#">3</a>
-  <a href="#">4</a>
-  <a href="#">5</a>
-  <a href="#">6</a>
+{arrayPages.map((element, i) => {
+            return (
+              <a href="#">{i+1}</a>
+            );
+          })}
   <a href="#">&raquo;</a>
 </div>
   );

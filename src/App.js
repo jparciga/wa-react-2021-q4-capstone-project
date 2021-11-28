@@ -15,7 +15,7 @@ import ProductPage from "./containers/ProductPage/ProductPage";
 
 
 function App() {
-  let itemsPerPage=16;
+  let itemsPerPage=12;
   //console.log(useFeaturedProducts());
   //return (<div>kek</div>)
   let products=useFeaturedProducts();

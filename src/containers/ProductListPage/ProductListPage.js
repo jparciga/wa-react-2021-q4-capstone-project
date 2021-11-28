@@ -86,7 +86,7 @@ function ProductListPage({ Categories,Products,itemsPerPage=16 }) {
   }
   items = Products.data.results;
 
-
+  let pages=Math.ceil(items.length/itemsPerPage);
   return (
     <div
       style={{ display: "flex", flexDirection: "column" }}
@@ -121,8 +121,7 @@ function ProductListPage({ Categories,Products,itemsPerPage=16 }) {
           <button class="genericButton" onClick={borrarFiltros}>Clear filters</button>
         </div>
       </div>
-
-      <PaginationBar></PaginationBar>
+      <PaginationBar pages={pages}></PaginationBar>
     </div>
   );
   
