@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
 import Categories from "../../mocks/en-us/product-categories.json";
+import { useFeaturedCategories } from '../../utils/hooks/useFeaturedCategories';
 import CategoriesItem from '../Categories/CategoriesItem';
 import "./CategoriesSlider.css"
+
+
 var timer=false;
 
-const CategoriesSlider = ( ) => {
+const CategoriesSlider = ( {categories}) => {
   const [current, setCurrent] = useState(0);
-  const length = Categories.results.length;
+  const {isLoading} = categories;
+
+  if(isLoading){
+    return(<h1>Loading...</h1>);
+  }
+  categories=categories.data;
+
+  const length = categories.results.length;
 
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
@@ -16,7 +26,7 @@ const CategoriesSlider = ( ) => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
-  if (!Array.isArray(Categories.results) || Categories.results.length <= 0) {
+  if (!Array.isArray(categories.results) || categories.results.length <= 0) {
     return null;
   }
   setTimeout(() => {

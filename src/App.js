@@ -8,22 +8,24 @@ import Home from "./containers/Home/Home";
 import { getCategories } from "./utils/getData";
 import ProductListPage from "./containers/ProductListPage/ProductListPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useFeaturedCategories } from "./utils/hooks/useFeaturedCategories";
 
 function App() {
-  const banners=useFeaturedBanners();
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <BrowserRouter>
         <Header title="MugiStore!" img_alt="MugiStore!" />
         <Routes>
 
-          <Route exact path="/" element={<Home Banners={banners} />} />
-          <Route path={"/home"} element={<Home Banners={banners} />} />
+          <Route exact path="/" element={<Home Banners={useFeaturedBanners()} Categories={useFeaturedCategories()} />} />
+          <Route path={"/home"} element={<Home Banners={useFeaturedBanners()} Categories={useFeaturedCategories()} />} />
 
           <Route
-            path="/ListarProductos"
+            path="/ProductList"
             element={<ProductListPage Categories={getCategories()} />}
-          />
+          >
+             <Route path=":id" element={<ProductListPage Categories={getCategories()} />} />
+          </Route>
 
           <Route
             path="*"

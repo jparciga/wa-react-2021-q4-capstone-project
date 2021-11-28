@@ -4,7 +4,8 @@ import "./ProductListPage.css";
 import Products from "./../../mocks/en-us/products.json";
 import SideBar from "../SideBar/SideBar";
 import PaginationBar from "../PaginationBar/PaginationBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 function ProductListPage({ Categories }) {
   let items = Products.results;
@@ -14,7 +15,6 @@ function ProductListPage({ Categories }) {
   const [CategoriesStates, updateCategoriesStates] = useState(Categories);
 
   const changeCategoryState = (id) => {
-    //console.log(id);
     let arr = [];
     let arrCatSelecteds = [];
     for (let i in CategoriesStates) {
@@ -31,8 +31,10 @@ function ProductListPage({ Categories }) {
         selected: cat.selected,
       });
     }
+    console.log(arr);
     updateCategoriesStates(arr);
 
+    //filtrar
     if (arrCatSelecteds.length !== 0) {
       let arrItem = [];
       for (let i in items) {
@@ -46,14 +48,27 @@ function ProductListPage({ Categories }) {
       updateItemsStates(items);
     }
   };
+  let params = useParams();
+  useEffect(()=>{
+  if (params.id !== null) {
+    for (let i in CategoriesStates) {
+      let cat = CategoriesStates[i];
+      if (cat.id === params.id && !cat.selected) {
+        changeCategoryState(params.id);
+        params.id = null;
+      }
+    }
+  }
+});
 
   return (
     <div
       style={{ display: "flex", flexDirection: "column" }}
-      class="float-container" width="100%"
+      class="float-container"
+      width="100%"
     >
       <div style={{ display: "flex", flexDirection: "row" }}>
-        <div >
+        <div>
           {ItemsStates.map((element, i) => {
             maxItems = i;
             return (
@@ -80,6 +95,7 @@ function ProductListPage({ Categories }) {
       <PaginationBar></PaginationBar>
     </div>
   );
+  
 }
 
 export default ProductListPage;

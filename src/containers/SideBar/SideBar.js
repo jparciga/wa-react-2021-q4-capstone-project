@@ -13,7 +13,7 @@ function SideBar({ Categories, event }) {
                   class={
                     element.selected ? "SideBarItemSelected" : "SideBarItem"
                   }
-                  onClick={()=>{event(element.id)}}
+                  onClick={()=>{event(element.id); console.log("imprimí",element.id)}}
                 >
                   <h1>{element.name}</h1>
                 </div>

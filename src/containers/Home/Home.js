@@ -3,12 +3,12 @@ import List from "../productList/ProductList";
 import BannerSlider from "./../Banner/BannerSlider";
 import {NavLink} from 'react-router-dom';
 
-const Home=({Banners, onAllProductsClick})=>{
+const Home=({Banners,Categories})=>{
     return(<div>
         <BannerSlider banners={Banners}></BannerSlider>
-      <CategoriesSlider />
+      <CategoriesSlider categories={Categories} />
       <List></List>
-      <NavLink to="/ListarProductos">
+      <NavLink to="/ProductList">
         <button class="viewAllProductsButton">
               View all products
             </button>
