@@ -18,6 +18,7 @@ function App() {
   let itemsPerPage=16;
   //console.log(useFeaturedProducts());
   //return (<div>kek</div>)
+  let products=useFeaturedProducts();
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <BrowserRouter>
@@ -26,14 +27,12 @@ function App() {
 
           <Route exact path="/" element={<Home Banners={useFeaturedBanners()} Categories={useFeaturedCategories()} Products = {useFeaturedProducts()} />} />
           <Route path={"/home"} element={<Home Banners={useFeaturedBanners()} Categories={useFeaturedCategories()} Products = {useFeaturedProducts()} />} />
-
-          <Route
-            path="/ProductList"
-            element={<ProductListPage Categories={getCategories()} Products = {useFeaturedProducts()} itemsPerPage={itemsPerPage}/>}
-          >
-             <Route path=":id" element={<ProductListPage Categories={getCategories()} Products = {useFeaturedProducts()} itemsPerPage={itemsPerPage}/>} />
-          </Route>
-
+          {["/ProductList", "/Products"].map((path, index) => 
+        <Route path={path} element={<ProductListPage Categories={getCategories()} Products = {products} itemsPerPage={itemsPerPage}/>} >
+          <Route path=":id" element={<ProductListPage Categories={getCategories()} Products = {products} itemsPerPage={itemsPerPage}/>} />
+        </Route>
+    )}
+          
           <Route
             path="/Product"
             element={<ProductPage Products = {useFeaturedProducts()}/>}
@@ -57,3 +56,12 @@ function App() {
 }
 
 export default App;
+/*
+<Route
+            path= {["/ProductList", "/Products"]}
+            element={<ProductListPage Categories={getCategories()} Products = {useFeaturedProducts()} itemsPerPage={itemsPerPage}/>}
+          >
+             <Route path=":id" element={<ProductListPage Categories={getCategories()} Products = {useFeaturedProducts()} itemsPerPage={itemsPerPage}/>} />
+          </Route>
+
+*/
