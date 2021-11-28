@@ -9,8 +9,13 @@ import { getCategories } from "./utils/getData";
 import ProductListPage from "./containers/ProductListPage/ProductListPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useFeaturedCategories } from "./utils/hooks/useFeaturedCategories";
+import { useFeaturedProducts } from "./utils/hooks/useFeaturedProducts";
+import { renderIntoDocument } from "react-dom/test-utils";
+
 
 function App() {
+  //console.log(useFeaturedProducts());
+  //return (<div>kek</div>)
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <BrowserRouter>
@@ -22,9 +27,9 @@ function App() {
 
           <Route
             path="/ProductList"
-            element={<ProductListPage Categories={getCategories()} />}
+            element={<ProductListPage Categories={getCategories()} Products = {useFeaturedProducts()}/>}
           >
-             <Route path=":id" element={<ProductListPage Categories={getCategories()} />} />
+             <Route path=":id" element={<ProductListPage Categories={getCategories()} Products = {useFeaturedProducts()}/>} />
           </Route>
 
           <Route

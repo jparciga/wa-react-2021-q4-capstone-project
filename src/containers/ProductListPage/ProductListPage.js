@@ -1,22 +1,26 @@
 import { div } from "prelude-ls";
 import Item from "../productItem/Item";
 import "./ProductListPage.css";
-import Products from "./../../mocks/en-us/products.json";
+//import Products from "./../../mocks/en-us/products.json";
 import SideBar from "../SideBar/SideBar";
 import PaginationBar from "../PaginationBar/PaginationBar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function ProductListPage({ Categories }) {
-  let items = Products.results;
 
-  const [ItemsStates, updateItemsStates] = useState(items);
+
+function ProductListPage({ Categories,Products }) {
+  let items = [];
   let maxItems = 0;
+  let arrCatSelecteds = [];
+  let params = useParams();
+  const {isLoading} = Products;
+  const [ItemsStates, updateItemsStates] = useState(items);
   const [CategoriesStates, updateCategoriesStates] = useState(Categories);
 
   const changeCategoryState = (id) => {
     let arr = [];
-    let arrCatSelecteds = [];
+    arrCatSelecteds = [];
     for (let i in CategoriesStates) {
       let cat = CategoriesStates[i];
       if (cat.id === id) {
@@ -48,8 +52,10 @@ function ProductListPage({ Categories }) {
       updateItemsStates(items);
     }
   };
-  let params = useParams();
+
   useEffect(()=>{
+
+
   if (params.id !== null) {
     for (let i in CategoriesStates) {
       let cat = CategoriesStates[i];
@@ -60,6 +66,12 @@ function ProductListPage({ Categories }) {
     }
   }
 });
+
+  if(isLoading){
+    return(<h1>Loading...</h1>);
+  }
+  items = Products.data.results;
+
 
   return (
     <div
