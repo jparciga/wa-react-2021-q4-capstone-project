@@ -1,13 +1,21 @@
+import Button from "../Button/Button";
+import {NavLink,Link} from 'react-router-dom';
 import "./Item.css"
-function Item(props){
-    const {img} = props;
+
+function Item({img, category, title, price, id}){
+
     return(
         <div class="card">
-        <div class="title"><h1  class="title">[{props.category}]{props.title}</h1>
-        <h1> $ {props.price}</h1></div>
+        <div class="title"><h1  class="title">[{category}]{title}</h1>
+        <h1> $ {price}</h1></div>
            <img class="itemimg" src={img}  />
-
-      <div class="container"><h3>{props.desc}</h3></div>
+        
+    <div style={{ display: "flex", flexDirection: "row" }}>
+      <Button text={"Add to Cart"}/>
+      <br/>&nbsp;
+          <NavLink to={"/Product/"+id} >
+        <Button text={"See More"}/>
+      </NavLink></div>
     </div>
     )
 }

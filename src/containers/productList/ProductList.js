@@ -1,10 +1,18 @@
 
 import Item from "../productItem/Item";
 import "./ProductList.css";
-import Products from "./../../mocks/en-us/products.json";
+//import Products from "./../../mocks/en-us/products.json";
 
-function List() {
-  let items = Products.results;
+function List({Products}) {
+
+  const {isLoading} = Products;
+
+  if(isLoading){
+    return(<h1>Loading...</h1>);
+  }
+  console.log(Products);
+  
+  let items = Products.data.results;
 
   return (
     <div style = {{display:'flex', flexDirection:'row'}}>
@@ -18,6 +26,8 @@ function List() {
                       desc={element.data.short_description}
                       price={element.data.price}
                       category={element.data.category.slug}
+                      id={element.id}
+
                     />
                   </div>
                 );

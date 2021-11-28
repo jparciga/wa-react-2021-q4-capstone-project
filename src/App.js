@@ -11,6 +11,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useFeaturedCategories } from "./utils/hooks/useFeaturedCategories";
 import { useFeaturedProducts } from "./utils/hooks/useFeaturedProducts";
 import { renderIntoDocument } from "react-dom/test-utils";
+import ProductPage from "./containers/ProductPage/ProductPage";
 
 
 function App() {
@@ -22,14 +23,21 @@ function App() {
         <Header title="MugiStore!" img_alt="MugiStore!" />
         <Routes>
 
-          <Route exact path="/" element={<Home Banners={useFeaturedBanners()} Categories={useFeaturedCategories()} />} />
-          <Route path={"/home"} element={<Home Banners={useFeaturedBanners()} Categories={useFeaturedCategories()} />} />
+          <Route exact path="/" element={<Home Banners={useFeaturedBanners()} Categories={useFeaturedCategories()} Products = {useFeaturedProducts()} />} />
+          <Route path={"/home"} element={<Home Banners={useFeaturedBanners()} Categories={useFeaturedCategories()} Products = {useFeaturedProducts()} />} />
 
           <Route
             path="/ProductList"
             element={<ProductListPage Categories={getCategories()} Products = {useFeaturedProducts()}/>}
           >
              <Route path=":id" element={<ProductListPage Categories={getCategories()} Products = {useFeaturedProducts()}/>} />
+          </Route>
+
+          <Route
+            path="/Product"
+            element={<ProductPage Products = {useFeaturedProducts()}/>}
+          >
+             <Route path=":id" element={<ProductPage Products = {useFeaturedProducts()}/>} />
           </Route>
 
           <Route
