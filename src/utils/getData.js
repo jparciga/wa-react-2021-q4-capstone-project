@@ -11,7 +11,6 @@ function getCategories() {
       id: cat.id,
       selected: false,
     });
-    //console.log(cats[i].name, cats[i]);
   }
   return cats;
 }

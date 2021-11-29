@@ -11,7 +11,6 @@ function Header({ img_alt, title }) {
 
   const changeSearchValue=(event)=>{
     searchValueState(event.target.value);
-    console.log(searchValue);
   }
   
   const redirect=()=>{

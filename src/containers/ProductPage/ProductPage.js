@@ -8,7 +8,6 @@ function ProductPage(products) {
   let idItem = params.id;
   let results = products.Products.data.results;
   let product = getProduct(results, idItem);
-  console.log(results, idItem);
   if (product === null)
     return (
       <div>

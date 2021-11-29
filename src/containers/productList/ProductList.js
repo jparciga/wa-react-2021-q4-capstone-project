@@ -9,8 +9,6 @@ function List({Products}) {
   if(isLoading){
     return(<h1>Loading...</h1>);
   }
-  console.log(Products);
-  
   let items = Products.data.results;
 
   return (
