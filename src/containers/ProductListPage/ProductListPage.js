@@ -15,7 +15,6 @@ function ProductListPage({ Categories, Products, itemsPerPage = 16 }) {
   const { isLoading } = Products;
   const [ItemsStates, updateItemsStates] = useState(items);
   const [CategoriesStates, updateCategoriesStates] = useState(Categories);
-  //console.log(arrCatSelecteds,"selected");
   const changeCategoryState = (id) => {
     let arr = [];
     let arrCatSelecteds = [];
@@ -93,7 +92,6 @@ function ProductListPage({ Categories, Products, itemsPerPage = 16 }) {
   };
 
   useEffect(() => {
-    console.log(params.id, "lmao");
     if (params.id !== undefined) {
       for (let i in CategoriesStates) {
         let cat = CategoriesStates[i];
