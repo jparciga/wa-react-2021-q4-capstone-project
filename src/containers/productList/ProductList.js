@@ -1,7 +1,6 @@
 
 import Item from "../productItem/Item";
 import "./ProductList.css";
-//import Products from "./../../mocks/en-us/products.json";
 
 function List({Products}) {
 
