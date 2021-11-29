@@ -8,20 +8,17 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Button, { EventButton } from "../Button/Button";
 
-
-
-function ProductListPage({ Categories,Products,itemsPerPage=16 }) {
+function ProductListPage({ Categories, Products, itemsPerPage = 16 }) {
   let items = [];
   let maxItems = 0;
-  let arrCatSelecteds = [];
   let params = useParams();
-  const {isLoading} = Products;
+  const { isLoading } = Products;
   const [ItemsStates, updateItemsStates] = useState(items);
   const [CategoriesStates, updateCategoriesStates] = useState(Categories);
-
+  //console.log(arrCatSelecteds,"selected");
   const changeCategoryState = (id) => {
     let arr = [];
-    arrCatSelecteds = [];
+    let arrCatSelecteds = [];
     for (let i in CategoriesStates) {
       let cat = CategoriesStates[i];
       if (cat.id === id) {
@@ -52,8 +49,35 @@ function ProductListPage({ Categories,Products,itemsPerPage=16 }) {
       updateItemsStates(items);
     }
   };
+  const getSelectedCategories = () => {
+    let arrCatSelecteds = [];
+    for (let i in CategoriesStates) {
+      let cat = CategoriesStates[i];
+      if (cat.selected) {
+        arrCatSelecteds.push(cat.id);
+      }
+    }
+    return arrCatSelecteds;
+  };
 
-  const borrarFiltros=()=>{
+  const updateItems = () => {
+    let arrCatSelecteds = getSelectedCategories();
+    //filtrar
+    if (arrCatSelecteds.length !== 0) {
+      let arrItem = [];
+      for (let i in items) {
+        let it = items[i];
+        if (arrCatSelecteds.includes(it.data.category.id)) {
+          arrItem.push(it);
+        }
+      }
+      updateItemsStates(arrItem);
+    } else {
+      updateItemsStates(items);
+    }
+  };
+
+  const borrarFiltros = () => {
     let arr = [];
     for (let i in CategoriesStates) {
       let cat = CategoriesStates[i];
@@ -68,25 +92,29 @@ function ProductListPage({ Categories,Products,itemsPerPage=16 }) {
     updateItemsStates(items);
   };
 
-  useEffect(()=>{
-
-  if (params.id !== null) {
-    for (let i in CategoriesStates) {
-      let cat = CategoriesStates[i];
-      if (cat.id === params.id && !cat.selected) {
-        changeCategoryState(params.id);
-        params.id = null;
+  useEffect(() => {
+    console.log(params.id, "lmao");
+    if (params.id !== undefined) {
+      for (let i in CategoriesStates) {
+        let cat = CategoriesStates[i];
+        if (cat.id === params.id) {
+            changeCategoryState(params.id);
+            params.id = null;
+            break;
+        }
       }
     }
-  }
-});
+    if (params.id === undefined) {
+      if (ItemsStates.length === 0) updateItemsStates(items);
+    }
+  });
 
-  if(isLoading){
-    return(<h1>Loading...</h1>);
+  if (isLoading) {
+    return <h1>Loading...</h1>;
   }
   items = Products.data.results;
 
-  let pages=Math.ceil(items.length/itemsPerPage);
+  let pages = Math.ceil(items.length / itemsPerPage);
   return (
     <div
       style={{ display: "flex", flexDirection: "column" }}
@@ -96,8 +124,8 @@ function ProductListPage({ Categories,Products,itemsPerPage=16 }) {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div>
           {ItemsStates.map((element, i) => {
-            if(i<itemsPerPage)maxItems = i;
-            if(i>itemsPerPage)return null;
+            if (i < itemsPerPage) maxItems = i;
+            if (i > itemsPerPage) return null;
             return (
               <div class="float-child">
                 <Item
@@ -117,14 +145,15 @@ function ProductListPage({ Categories,Products,itemsPerPage=16 }) {
             Categories={CategoriesStates}
             event={changeCategoryState}
           ></SideBar>
-          <br/>
-          <button class="genericButton" onClick={borrarFiltros}>Clear filters</button>
+          <br />
+          <button class="genericButton" onClick={borrarFiltros}>
+            Clear filters
+          </button>
         </div>
       </div>
       <PaginationBar pages={pages}></PaginationBar>
     </div>
   );
-  
 }
 
 export default ProductListPage;

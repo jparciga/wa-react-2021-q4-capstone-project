@@ -12,11 +12,20 @@ import { useFeaturedCategories } from "./utils/hooks/useFeaturedCategories";
 import { useFeaturedProducts } from "./utils/hooks/useFeaturedProducts";
 import { renderIntoDocument } from "react-dom/test-utils";
 import ProductPage from "./containers/ProductPage/ProductPage";
-
+import SearchPage from "./containers/SearchPage/SearchPage";
 
 function App() {
+  const getParamValueFromKey=(searchKey)=>{
+    const params = new URLSearchParams(window.location.search)
+    for (const [key, value] of params) {
+      if(key===searchKey)
+      return value;
+    }
+  };
+  //let query = useQuery();
   let itemsPerPage=12;
-  //console.log(useFeaturedProducts());
+  //console.log(query);
+  //console.log(useFeaturedFetch());
   //return (<div>kek</div>)
   let products=useFeaturedProducts();
   return (
@@ -27,11 +36,19 @@ function App() {
 
           <Route exact path="/" element={<Home Banners={useFeaturedBanners()} Categories={useFeaturedCategories()} Products = {useFeaturedProducts()} />} />
           <Route path={"/home"} element={<Home Banners={useFeaturedBanners()} Categories={useFeaturedCategories()} Products = {useFeaturedProducts()} />} />
+          
+          
           {["/ProductList", "/Products"].map((path, index) => 
         <Route path={path} element={<ProductListPage Categories={getCategories()} Products = {products} itemsPerPage={itemsPerPage}/>} >
           <Route path=":id" element={<ProductListPage Categories={getCategories()} Products = {products} itemsPerPage={itemsPerPage}/>} />
         </Route>
     )}
+
+          <Route
+            path="/search"
+            element={<SearchPage Products = {useFeaturedProducts()} searchTerm={getParamValueFromKey("q")}/>}
+          >
+          </Route>
           
           <Route
             path="/Product"

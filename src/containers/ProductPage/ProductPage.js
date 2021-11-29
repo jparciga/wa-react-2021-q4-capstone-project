@@ -40,7 +40,7 @@ function ProductPage(products) {
             <img class="productPageitemimg" src={img} />
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div width="50%"><h3>Description: <p>{desc}</p></h3></div>
+            <div><h3>Description: <p>{desc}</p></h3></div>
             <h3>SKU: {sku}</h3>
 
             <div>

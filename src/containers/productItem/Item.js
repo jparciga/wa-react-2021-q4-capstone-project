@@ -2,7 +2,7 @@ import Button from "../Button/Button";
 import {NavLink,Link} from 'react-router-dom';
 import "./Item.css"
 
-function Item({img, category, title, price, id}){
+function Item({img, category, title, price, id, showDesc,desc}){
 
     return(
         <div class="card">
@@ -16,6 +16,7 @@ function Item({img, category, title, price, id}){
           <NavLink to={"/Product/"+id} >
         <Button text={"See More"}/>
       </NavLink></div>
+      <div>{showDesc?<h3>{desc}</h3>:""}</div>
     </div>
     )
 }
