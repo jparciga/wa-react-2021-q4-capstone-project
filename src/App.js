@@ -15,13 +15,6 @@ import ProductPage from "./containers/ProductPage/ProductPage";
 import SearchPage from "./containers/SearchPage/SearchPage";
 
 function App() {
-  const getParamValueFromKey=(searchKey)=>{
-    const params = new URLSearchParams(window.location.search)
-    for (const [key, value] of params) {
-      if(key===searchKey)
-      return value;
-    }
-  };
   //let query = useQuery();
   let itemsPerPage=12;
   //console.log(query);
@@ -46,7 +39,7 @@ function App() {
 
           <Route
             path="/search"
-            element={<SearchPage Products = {useFeaturedProducts()} searchTerm={getParamValueFromKey("q")}/>}
+            element={<SearchPage Products = {useFeaturedProducts()}/>}
           >
           </Route>
           

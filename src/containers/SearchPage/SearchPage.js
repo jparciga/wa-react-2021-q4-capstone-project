@@ -1,13 +1,23 @@
+import PaginationBar from "../PaginationBar/PaginationBar";
 import Item from "../productItem/Item";
 import "./SearchPage.css";
 
-function SearchPage({ Products, searchTerm }) {
+function SearchPage({ Products, itemsPerPage=20 }) {
   const { isLoading } = Products;
 
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
-  console.log(Products, searchTerm);
+  const getParamValueFromKey=(searchKey)=>{
+    const params = new URLSearchParams(window.location.search)
+    for (const [key, value] of params) {
+      if(key===searchKey)
+      return value;
+    }
+  };
+
+  let searchTerm=getParamValueFromKey("q");
+  
    searchTerm=searchTerm.toUpperCase();
   let items = Products.data.results;
   let itemCount = 0;
@@ -23,6 +33,7 @@ function SearchPage({ Products, searchTerm }) {
               let name=element.data.name.toUpperCase();
             if (name.includes(searchTerm)) {
               itemCount++;
+            if (i >= itemsPerPage) return null;
               return (
                 <div class="float-child">
                   <Item
@@ -43,6 +54,7 @@ function SearchPage({ Products, searchTerm }) {
         </div>
         {itemCount === 0 ? <h1>Not Matches Found</h1> : ""}
       </div>
+      {itemCount === 0 ? "" : <PaginationBar pages={ Math.ceil(itemCount / itemsPerPage)}></PaginationBar>}
     </div>
   );
 }
