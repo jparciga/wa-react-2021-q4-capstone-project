@@ -15,11 +15,7 @@ import ProductPage from "./containers/ProductPage/ProductPage";
 import SearchPage from "./containers/SearchPage/SearchPage";
 
 function App() {
-  //let query = useQuery();
-  let itemsPerPage=12;
-  //console.log(query);
-  //console.log(useFeaturedFetch());
-  //return (<div>kek</div>)
+  let itemsPerPage=12;//itemsPerPage
   let products=useFeaturedProducts();
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -66,12 +62,3 @@ function App() {
 }
 
 export default App;
-/*
-<Route
-            path= {["/ProductList", "/Products"]}
-            element={<ProductListPage Categories={getCategories()} Products = {useFeaturedProducts()} itemsPerPage={itemsPerPage}/>}
-          >
-             <Route path=":id" element={<ProductListPage Categories={getCategories()} Products = {useFeaturedProducts()} itemsPerPage={itemsPerPage}/>} />
-          </Route>
-
-*/

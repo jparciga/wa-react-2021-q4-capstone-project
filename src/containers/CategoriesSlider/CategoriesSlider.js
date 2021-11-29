@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Categories from "../../mocks/en-us/product-categories.json";
-import { useFeaturedCategories } from '../../utils/hooks/useFeaturedCategories';
 import CategoriesItem from '../Categories/CategoriesItem';
 import "./CategoriesSlider.css"
 

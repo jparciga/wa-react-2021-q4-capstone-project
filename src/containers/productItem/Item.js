@@ -1,5 +1,5 @@
 import Button from "../Button/Button";
-import {NavLink,Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import "./Item.css"
 
 function Item({img, category, title, price, id, showDesc,desc}){
@@ -8,7 +8,7 @@ function Item({img, category, title, price, id, showDesc,desc}){
         <div class="card">
         <div class="title"><h1  class="title">[{category}]{title}</h1>
         <h1> $ {price}</h1></div>
-           <img class="itemimg" src={img}  />
+           <img class="itemimg" alt="iteming" src={img}  />
         
     <div style={{ display: "flex", flexDirection: "row" }}>
       <Button text={"Add to Cart"}/>

@@ -1,12 +1,10 @@
-import { div } from "prelude-ls";
+
 import Item from "../productItem/Item";
 import "./ProductListPage.css";
-//import Products from "./../../mocks/en-us/products.json";
 import SideBar from "../SideBar/SideBar";
 import PaginationBar from "../PaginationBar/PaginationBar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Button, { EventButton } from "../Button/Button";
 
 function ProductListPage({ Categories, Products, itemsPerPage = 16 }) {
   let items = [];

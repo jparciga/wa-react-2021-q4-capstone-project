@@ -1,22 +1,14 @@
 import logo from "./../../imgs/mugiwara.jpg";
 import shoppingCart from "./../../imgs/shoppingCart.png";
 import "./Header.css";
-import { NavLink, Link, Navigate, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import SearchPage from "../SearchPage/SearchPage";
 
 function Header({ img_alt, title }) {
   let navigate = useNavigate();
   const img = logo;
   const [searchValue,searchValueState] = useState("");
-  const Search = () => {
-    /*const navigate = useNavigate();
-    let val=document.getElementById("SearchInput").value;
-    console.log(val,"VALUE");
-    let path = "/search?q="+val;
-    navigate(path);
-    */
-  };
+
   const changeSearchValue=(event)=>{
     searchValueState(event.target.value);
     console.log(searchValue);
@@ -37,7 +29,7 @@ function Header({ img_alt, title }) {
         <h1> {title} </h1>
       </div>
       <div class="cart">
-        <img src={shoppingCart} class="cartImg"></img>
+        <img src={shoppingCart} alt="cartImg" class="cartImg"></img>
       </div>
       <div class="search">
         Search <input id="SearchInput" onChange={changeSearchValue}></input>

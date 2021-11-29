@@ -1,4 +1,3 @@
-//import logo from './../../imgs/mugiwara.jpg';
 import "./CategoriesItem.css"
 import Categories from "./../../mocks/en-us/product-categories.json";
 import {NavLink} from 'react-router-dom';
