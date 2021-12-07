@@ -2,8 +2,12 @@ import Button from "../Button/Button";
 import "./ProductPage.css";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import CartContext from "../../context/CartContext";
+
 
 function ProductPage(products) {
+  const {CartProducts,handleProducts} = useContext(CartContext)
   let params = useParams();
   let idItem = params.id;
   let results = products.Products.data.results;

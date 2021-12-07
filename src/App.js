@@ -13,13 +13,16 @@ import { useFeaturedProducts } from "./utils/hooks/useFeaturedProducts";
 import { renderIntoDocument } from "react-dom/test-utils";
 import ProductPage from "./containers/ProductPage/ProductPage";
 import SearchPage from "./containers/SearchPage/SearchPage";
+import CartContext, { CartProvider } from "./context/CartContext";
 
 function App() {
   let itemsPerPage=12;//itemsPerPage
   let products=useFeaturedProducts();
+  let cartProducts=[];
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <BrowserRouter>
+      <CartProvider>
         <Header title="MugiStore!" img_alt="MugiStore!" />
         <Routes>
 
@@ -28,8 +31,8 @@ function App() {
           
           
           {["/ProductList", "/Products"].map((path, index) => 
-        <Route path={path} element={<ProductListPage Categories={getCategories()} Products = {products} itemsPerPage={itemsPerPage}/>} >
-          <Route path=":id" element={<ProductListPage Categories={getCategories()} Products = {products} itemsPerPage={itemsPerPage}/>} />
+        <Route path={path} element={<ProductListPage Categories={getCategories()} Products = {products} itemsPerPage={itemsPerPage} cartProducts={cartProducts}/>} >
+          <Route path=":id" element={<ProductListPage Categories={getCategories()} Products = {products} itemsPerPage={itemsPerPage} cartProducts={cartProducts}/>} />
         </Route>
     )}
 
@@ -55,6 +58,7 @@ function App() {
             }
           />
         </Routes>
+        </CartProvider>
       </BrowserRouter>
       <Footer text="Ecommerce created during Wizeline’s Academy React Bootcamp"></Footer>
     </div>

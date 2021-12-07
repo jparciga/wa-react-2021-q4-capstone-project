@@ -6,7 +6,7 @@ import PaginationBar from "../PaginationBar/PaginationBar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function ProductListPage({ Categories, Products, itemsPerPage = 16 }) {
+function ProductListPage({ Categories, Products, itemsPerPage = 16 , cartProducts}) {
   let items = [];
   let maxItems = 0;
   let params = useParams();
@@ -131,6 +131,8 @@ function ProductListPage({ Categories, Products, itemsPerPage = 16 }) {
                   price={element.data.price}
                   category={element.data.category.slug}
                   id={element.id}
+                  cartProducts={cartProducts}
+                  stock={element.data.stock}
                 />
               </div>
             );

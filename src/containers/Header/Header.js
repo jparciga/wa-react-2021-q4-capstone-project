@@ -2,9 +2,13 @@ import logo from "./../../imgs/mugiwara.jpg";
 import shoppingCart from "./../../imgs/shoppingCart.png";
 import "./Header.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext} from "react";
+import CartContext from "../../context/CartContext";
 
 function Header({ img_alt, title }) {
+  const {CartProducts,handleProducts} = useContext(CartContext)
+
+  console.log(CartProducts,"lel");
   let navigate = useNavigate();
   const img = logo;
   const [searchValue,searchValueState] = useState("");
@@ -17,6 +21,15 @@ function Header({ img_alt, title }) {
     navigate("/home", { replace: true });
     navigate("/search?q="+searchValue, { replace: true });
   }
+
+  const getTotalCartItems=()=>{
+    let cont=0;
+    CartProducts.forEach((element,i) => {
+      cont+=element.qty;
+  });
+  return cont;
+  }
+
   return (
     <div style={{ display: "flex", flexDirection: "row" }} class="headerTable">
       <div class="headerLogo">
@@ -28,7 +41,10 @@ function Header({ img_alt, title }) {
         <h1> {title} </h1>
       </div>
       <div class="cart">
+      <NavLink to="/cart">
         <img src={shoppingCart} alt="cartImg" class="cartImg"></img>
+        </NavLink>
+        <p> {getTotalCartItems()} Items on Cart</p>
       </div>
       <div class="search">
         Search <input id="SearchInput" onChange={changeSearchValue}></input>
