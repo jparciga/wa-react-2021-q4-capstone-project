@@ -14,6 +14,8 @@ import { renderIntoDocument } from "react-dom/test-utils";
 import ProductPage from "./containers/ProductPage/ProductPage";
 import SearchPage from "./containers/SearchPage/SearchPage";
 import CartContext, { CartProvider } from "./context/CartContext";
+import CartPage from "./containers/CartPage/CartPage";
+
 
 function App() {
   let itemsPerPage=12;//itemsPerPage
@@ -41,7 +43,13 @@ function App() {
             element={<SearchPage Products = {useFeaturedProducts()}/>}
           >
           </Route>
-          
+
+          <Route
+            path="/cart"
+            element={<CartPage/>}
+          >
+          </Route>
+
           <Route
             path="/Product"
             element={<ProductPage Products = {useFeaturedProducts()}/>}

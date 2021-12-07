@@ -9,7 +9,7 @@ function Item({img, category, title, price, id, showDesc,desc, stock}){
   const {CartProducts,handleProducts} = useContext(CartContext);
   const addToCart=()=>{
     //alert("lmao");
-    handleProducts({id:id,title:title,stock:stock,category:category,price:price,desc:desc,qty:1},1);
+    handleProducts({id:id,title:title,stock:stock,category:category,price:price,desc:desc,qty:1,img:img},1);
   };
 
   const getQtyInCart=()=>{
