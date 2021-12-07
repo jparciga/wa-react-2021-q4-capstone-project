@@ -18,7 +18,6 @@ function CartPage() {
               <tr>
                 <td>
                 {CartProducts.map((element, i) => {
-                    console.log(element,"aaaay");
                     subtotal+=element.price*element.qty;
                 return (
                   <CartItemRow props={element}/>
@@ -28,7 +27,13 @@ function CartPage() {
               </tr>
             </table>
             </div>
-      <div><h1>SubTotal: $ {subtotal}</h1></div>
+            <div style={{ display: "flex", flexDirection: "row" }}>
+                <h1>SubTotal: $ {subtotal}</h1>   
+                </div>
+            <div style={{ display: "flex", flexDirection: "row" }}>
+      <NavLink to={"/Checkout/"} >
+        <Button text={"Proceed to Checkout"}/>
+      </NavLink></div>
     </div>
   );
 }

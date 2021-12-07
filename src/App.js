@@ -15,6 +15,7 @@ import ProductPage from "./containers/ProductPage/ProductPage";
 import SearchPage from "./containers/SearchPage/SearchPage";
 import CartContext, { CartProvider } from "./context/CartContext";
 import CartPage from "./containers/CartPage/CartPage";
+import Checkout from "./containers/Checkout/Checkout";
 
 
 function App() {
@@ -47,6 +48,12 @@ function App() {
           <Route
             path="/cart"
             element={<CartPage/>}
+          >
+          </Route>
+
+          <Route
+            path="/checkout"
+            element={<Checkout/>}
           >
           </Route>
 

@@ -28,7 +28,7 @@ function ProductPage(products) {
   let specs = product.data.specs;
   let id = product.id;
   let stock = product.data.stock;
-console.log(stock);
+  
   const getQtyInCart=()=>{
     let cont=0;
     CartProducts.forEach((element,i) => {
@@ -100,8 +100,6 @@ console.log(stock);
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
-          {//<Button text={"Add to Cart"} />
-          }
           &nbsp;
           <NavLink to={"/home/"}>
             <Button text={"Back to Home"} />

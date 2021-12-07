@@ -8,7 +8,6 @@ import CartContext from "../../context/CartContext";
 function Header({ img_alt, title }) {
   const {CartProducts,handleProducts} = useContext(CartContext)
 
-  console.log(CartProducts,"lel");
   let navigate = useNavigate();
   const img = logo;
   const [searchValue,searchValueState] = useState("");
