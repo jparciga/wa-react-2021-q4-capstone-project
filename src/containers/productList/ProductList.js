@@ -24,6 +24,7 @@ function List({Products}) {
                       price={element.data.price}
                       category={element.data.category.slug}
                       id={element.id}
+                      stock={element.data.stock}
 
                     />
                   </div>
