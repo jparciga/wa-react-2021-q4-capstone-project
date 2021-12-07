@@ -27,6 +27,17 @@ function ProductPage(products) {
   let tags = product.tags;
   let specs = product.data.specs;
   let id = product.id;
+  let stock = product.data.stock;
+console.log(stock);
+  const getQtyInCart=()=>{
+    let cont=0;
+    CartProducts.forEach((element,i) => {
+      if(id===element.id){
+      cont=element.qty;
+      }
+  });
+  return cont;
+  }
 
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
@@ -48,7 +59,9 @@ function ProductPage(products) {
 
             <div>
               <h2>
-                Qty <input type="number"></input>
+                Qty <input type="text" value={getQtyInCart()}  ></input>
+                {getQtyInCart()<stock?<button onClick={()=>{handleProducts({id:id,title:title,stock:stock,category:category,price:price,desc:desc,qty:1},1)}}>+1</button>:""}
+                {getQtyInCart()!==0?<button onClick={()=>{handleProducts({id:id,title:title,stock:stock,category:category,price:price,desc:desc,qty:1},-1)}}>-1</button>:""}
               </h2>
             </div>
             <div>
@@ -87,7 +100,8 @@ function ProductPage(products) {
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <Button text={"Add to Cart"} />
+          {//<Button text={"Add to Cart"} />
+          }
           &nbsp;
           <NavLink to={"/home/"}>
             <Button text={"Back to Home"} />
