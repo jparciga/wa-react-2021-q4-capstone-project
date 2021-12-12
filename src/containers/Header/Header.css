@@ -1,39 +1,35 @@
-
-
-.headerTable{
-    background-color:darkcyan;
-    width: 100%;
+.headerTable {
+  background-color: darkcyan;
+  width: 100%;
 }
 
-.headerLogo{
+.headerLogo {
   height: 100%;
 }
 
-.header{
-    width: 100%;
+.header {
+  width: 100%;
 }
 
-.headerLogoImg{
-    height: 50px;
+.headerLogoImg {
+  height: 50px;
 }
 
-.headerTitle{
-    width: 50%;
+.headerTitle {
+  width: 50%;
 }
 
-.cart{
-    width:10%
-    
+.cart {
+  width: 10%;
 }
-.cartImg{
-    width: 20%;
-}
-
-.search{
-    width: 15%;
-    text-align: right;
-}
-div{
-    justify-content: center;
+.cartImg {
+  width: 20%;
 }
 
+.search {
+  width: 15%;
+  text-align: right;
+}
+div {
+  justify-content: center;
+}

@@ -5,12 +5,12 @@ var timer = false;
 
 const BannerSlider = ({ banners }) => {
   const [current, setCurrent] = useState(0);
-  const {isLoading} = banners;
+  const { isLoading } = banners;
 
-  if(isLoading){
-    return(<h1>Loading...</h1>);
+  if (isLoading) {
+    return <h1>Loading...</h1>;
   }
-   banners=banners.data;
+  banners = banners.data;
 
   const length = banners.results.length;
 

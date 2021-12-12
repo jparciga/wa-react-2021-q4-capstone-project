@@ -1,24 +1,20 @@
-
-
-.bannertable{
-    background-color: lightslategray;
-    width: 100%;
+.bannertable {
+  background-color: lightslategray;
+  width: 100%;
 }
 
-.bannerlogo{
+.bannerlogo {
   height: 100%;
 }
 
-.banner{
-    width: 100%;
+.banner {
+  width: 100%;
 }
 
-.bannerlogoimg{
-    height: 50px;
+.bannerlogoimg {
+  height: 50px;
 }
 
-.bannertitle{
-    width: 50%;
+.bannertitle {
+  width: 50%;
 }
-
-

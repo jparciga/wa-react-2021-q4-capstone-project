@@ -1,12 +1,16 @@
-
-import Item from "../productItem/Item";
+import Item from "../Item/Item";
 import "./ProductListPage.css";
 import SideBar from "../SideBar/SideBar";
 import PaginationBar from "../PaginationBar/PaginationBar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function ProductListPage({ Categories, Products, itemsPerPage = 16 , cartProducts}) {
+function ProductListPage({
+  Categories,
+  Products,
+  itemsPerPage = 16,
+  cartProducts,
+}) {
   let items = [];
   let maxItems = 0;
   let params = useParams();
@@ -94,9 +98,9 @@ function ProductListPage({ Categories, Products, itemsPerPage = 16 , cartProduct
       for (let i in CategoriesStates) {
         let cat = CategoriesStates[i];
         if (cat.id === params.id) {
-            changeCategoryState(params.id);
-            params.id = null;
-            break;
+          changeCategoryState(params.id);
+          params.id = null;
+          break;
         }
       }
     }

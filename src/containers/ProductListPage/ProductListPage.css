@@ -1,27 +1,27 @@
 .float-container {
-    border: 3px solid #fff;
-    padding: 20px;
-    width: 100%;
+  border: 3px solid #fff;
+  padding: 20px;
+  width: 100%;
 }
 
 .float-child {
-    width: 30%;
-    float: left;
-    padding: 20px;
-    border: 2px ;
-}  
+  width: 30%;
+  float: left;
+  padding: 20px;
+  border: 2px;
+}
 
-.viewAllProductsButton{
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+.viewAllProductsButton {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 .viewAllProductsButton:hover {
-    background-color: lightgreen; /* Green */
-    color: black;
-  }
+  background-color: lightgreen; /* Green */
+  color: black;
+}

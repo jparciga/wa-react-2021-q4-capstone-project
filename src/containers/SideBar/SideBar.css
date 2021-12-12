@@ -1,48 +1,48 @@
-.CategoriesSideBar{
-    vertical-align: text-top;
+.CategoriesSideBar {
+  vertical-align: text-top;
 }
 
-.SideBarItem{
-    background-color: lightgray; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 8px;
-    width: 60%;
+.SideBarItem {
+  background-color: lightgray;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 8px;
+  width: 60%;
 }
 
 .SideBarItem:hover {
-    background-color: lightgreen; 
-    color: black;
-  }
+  background-color: lightgreen;
+  color: black;
+}
 
-  .SideBarItemSelected{
-    background-color:cornflowerblue; 
-    border: none;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 8px;
-    width: 60%;
+.SideBarItemSelected {
+  background-color: cornflowerblue;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 8px;
+  width: 60%;
 }
 .SideBarItemSelected:hover {
-    background-color: lightgreen;
-    color: black;
-  }
+  background-color: lightgreen;
+  color: black;
+}
 
-.CategoriesSideBarTitle{
-    background-color:Black; 
-    border: none;
-    color: white ;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 8px;
-    width: 60%;
+.CategoriesSideBarTitle {
+  background-color: Black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 8px;
+  width: 60%;
 }

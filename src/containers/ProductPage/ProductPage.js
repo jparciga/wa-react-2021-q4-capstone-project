@@ -5,9 +5,9 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import CartContext from "../../context/CartContext";
 
-
 function ProductPage(products) {
-  const {CartProducts,handleProducts} = useContext(CartContext)
+  const { CartProducts, handleProducts } = useContext(CartContext);
+  const { getQtyInCart } = useContext(CartContext);
   let params = useParams();
   let idItem = params.id;
   let results = products.Products.data.results;
@@ -28,19 +28,19 @@ function ProductPage(products) {
   let specs = product.data.specs;
   let id = product.id;
   let stock = product.data.stock;
-  
-  const getQtyInCart=()=>{
-    let cont=0;
-    CartProducts.forEach((element,i) => {
-      if(id===element.id){
-      cont=element.qty;
-      }
-  });
-  return cont;
-  }
+
+  let productToHanlde = {
+    id: id,
+    title: title,
+    stock: stock,
+    category: category,
+    price: price,
+    desc: desc,
+    qty: 1,
+  };
 
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
+    <div class="ProductPageDivRow">
       <div class="productPageCard">
         <div class="productPagetitle">
           <h1 class="productPagetitle">
@@ -49,19 +49,37 @@ function ProductPage(products) {
           <h1> $ {price}</h1>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "row" }}>
+        <div class="ProductPageDivRow">
           <div>
             <img class="productPageitemimg" src={img} />
           </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div><h3>Description: <p>{desc}</p></h3></div>
+          <div class="ProductPageDivColumn">
+            <div>
+              <h3>
+                Description: <p>{desc}</p>
+              </h3>
+            </div>
             <h3>SKU: {sku}</h3>
 
             <div>
               <h2>
-                Qty <input type="text" value={getQtyInCart()}  ></input>
-                {getQtyInCart()<stock?<button onClick={()=>{handleProducts({id:id,title:title,stock:stock,category:category,price:price,desc:desc,qty:1},1)}}>+1</button>:""}
-                {getQtyInCart()!==0?<button onClick={()=>{handleProducts({id:id,title:title,stock:stock,category:category,price:price,desc:desc,qty:1},-1)}}>-1</button>:""}
+                Qty <input type="text" value={getQtyInCart(id)}></input>
+                <button
+                  onClick={() => {
+                    handleProducts(productToHanlde, 1);
+                  }}
+                  disabled={getQtyInCart(id) >= stock}
+                >
+                  +1
+                </button>
+                <button
+                  onClick={() => {
+                    handleProducts(productToHanlde, -1);
+                  }}
+                  disabled={getQtyInCart(id) === 0}
+                >
+                  -1
+                </button>
               </h2>
             </div>
             <div>
@@ -99,7 +117,7 @@ function ProductPage(products) {
             <br />
           </div>
         </div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
+        <div class="ProductPageDivRow">
           &nbsp;
           <NavLink to={"/home/"}>
             <Button text={"Back to Home"} />

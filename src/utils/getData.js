@@ -1,6 +1,5 @@
 import Categories from "../mocks/en-us/product-categories.json";
 
-
 function getCategories() {
   const cats = [];
   for (let i in Categories.results) {
@@ -15,4 +14,4 @@ function getCategories() {
   return cats;
 }
 
-export { getCategories }
+export { getCategories };

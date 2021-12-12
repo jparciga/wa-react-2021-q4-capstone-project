@@ -1,24 +1,23 @@
 import PaginationBar from "../PaginationBar/PaginationBar";
-import Item from "../productItem/Item";
+import Item from "../Item/Item";
 import "./SearchPage.css";
 
-function SearchPage({ Products, itemsPerPage=20 }) {
+function SearchPage({ Products, itemsPerPage = 20 }) {
   const { isLoading } = Products;
 
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
-  const getParamValueFromKey=(searchKey)=>{
-    const params = new URLSearchParams(window.location.search)
+  const getParamValueFromKey = (searchKey) => {
+    const params = new URLSearchParams(window.location.search);
     for (const [key, value] of params) {
-      if(key===searchKey)
-      return value;
+      if (key === searchKey) return value;
     }
   };
 
-  let searchTerm=getParamValueFromKey("q");
-  
-   searchTerm=searchTerm.toUpperCase();
+  let searchTerm = getParamValueFromKey("q");
+
+  searchTerm = searchTerm.toUpperCase();
   let items = Products.data.results;
   let itemCount = 0;
   return (
@@ -30,10 +29,10 @@ function SearchPage({ Products, itemsPerPage=20 }) {
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div>
           {items.map((element, i) => {
-              let name=element.data.name.toUpperCase();
+            let name = element.data.name.toUpperCase();
             if (name.includes(searchTerm)) {
               itemCount++;
-            if (i >= itemsPerPage) return null;
+              if (i >= itemsPerPage) return null;
               return (
                 <div class="float-child">
                   <Item
@@ -54,7 +53,13 @@ function SearchPage({ Products, itemsPerPage=20 }) {
         </div>
         {itemCount === 0 ? <h1>Not Matches Found</h1> : ""}
       </div>
-      {itemCount === 0 ? "" : <PaginationBar pages={ Math.ceil(itemCount / itemsPerPage)}></PaginationBar>}
+      {itemCount === 0 ? (
+        ""
+      ) : (
+        <PaginationBar
+          pages={Math.ceil(itemCount / itemsPerPage)}
+        ></PaginationBar>
+      )}
     </div>
   );
 }
