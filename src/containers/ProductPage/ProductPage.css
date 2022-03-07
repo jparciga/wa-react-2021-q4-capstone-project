@@ -1,0 +1,40 @@
+.productPageCard {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  background-color: gray;
+}
+
+.productPagetitle {
+  text-align: center;
+  background-color: burlywood;
+}
+
+.productPageitemimg {
+  padding-left: 10%;
+  width: 80%; /* or any custom size */
+  height: 300px;
+  object-fit: contain;
+}
+
+/* On mouse-over, add a deeper shadow */
+.productPagecard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.productPagecontainer {
+  padding: 2px 16px;
+}
+
+.ProductPageDivRow {
+  display: flex;
+  flex-direction: row;
+}
+.ProductPageDivColumn {
+  display: flex;
+  flex-direction: column;
+}
